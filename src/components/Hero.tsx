@@ -1,8 +1,10 @@
 export default function Hero() {
   return (
-    <section className="min-h-[70vh] bg-neutral-950 text-white flex items-center justify-center px-6">
-      <div className="max-w-3xl text-center">
 
+   <section
+     id="hero"
+     className="min-h-screen bg-neutral-950 text-white flex flex-col items-center justify-center px-6"
+   >
         <h1 className="text-5xl md:text-7xl font-bold">
           🐘 СЫТЫЙ СЛОНЪ
         </h1>

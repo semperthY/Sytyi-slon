@@ -1,4 +1,6 @@
 import { menu } from "../data/menu";
+import { site } from "../config/site";
+
 export default function MenuSection() {
   return (
     <section className="px-6 py-16 bg-neutral-900 text-white">
@@ -16,7 +18,7 @@ export default function MenuSection() {
        </h3>
 
        <p className="mt-2 text-yellow-400 font-bold">
-       {item.price}
+       {item.price.toFixed(2)} {site.currency}
        </p>
 
        <p className="mt-3 text-neutral-300">
