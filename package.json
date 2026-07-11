@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {
   "name": "sytyi-slon",
   "version": "0.1.0",
@@ -10,8 +11,8 @@
   },
   "dependencies": {
     "next": "16.2.10",
-    "react": "19.2.4",
-    "react-dom": "19.2.4"
+    "react": "19.2.0",
+    "react-dom": "19.2.0"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
@@ -24,3 +25,6 @@
     "typescript": "^5"
   }
 }
+=======
+{"name":"sytyi-slon","private":true}
+>>>>>>> 22ca27743cb6258bcfbe481f56b67c0e45012407
