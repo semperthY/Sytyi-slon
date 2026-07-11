@@ -1,3 +1,4 @@
+import MenuSection from "../components/MenuSection";
 import Header from "../components/Header";
 
 export default function Home() {
@@ -14,6 +15,7 @@ export default function Home() {
           Добро пожаловать в кафе «Сытый Слонъ».
         </p>
       </main>
+     <MenuSection />
     </>
   );
 }
