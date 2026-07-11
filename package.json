@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 {
   "name": "sytyi-slon",
   "version": "0.1.0",
@@ -25,6 +24,3 @@
     "typescript": "^5"
   }
 }
-=======
-{"name":"sytyi-slon","private":true}
->>>>>>> 22ca27743cb6258bcfbe481f56b67c0e45012407
