@@ -7,18 +7,24 @@ export default function Hero() {
           🐘 СЫТЫЙ СЛОНЪ
         </h1>
 
-        <p className="mt-6 text-lg md:text-xl text-neutral-300">
-          Домашняя кухня, ароматный кофе и уютная атмосфера.
+        <p className="mt-6 text-xl text-yellow-400">
+          Домашняя кухня • Кофе • Уютная атмосфера
+        </p>
+
+        <p className="mt-6 text-lg text-neutral-300">
+          Добро пожаловать в кафе «Сытый Слонъ».
+          Здесь вкусная еда, ароматный кофе и место,
+          где хочется остаться подольше.
         </p>
 
         <div className="mt-10 flex flex-col sm:flex-row justify-center gap-4">
 
           <button className="rounded-xl bg-yellow-500 px-8 py-4 font-semibold text-black hover:bg-yellow-400 transition">
-            Посмотреть меню
+            📖 Смотреть меню
           </button>
 
           <button className="rounded-xl border border-yellow-500 px-8 py-4 font-semibold text-yellow-400 hover:bg-yellow-500 hover:text-black transition">
-            Забронировать столик
+            📍 Как нас найти
           </button>
 
         </div>
