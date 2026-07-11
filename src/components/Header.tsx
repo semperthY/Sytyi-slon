@@ -3,7 +3,7 @@
 import { useState } from "react";
 export default function Header(){
   const [menuOpen, setMenuOpen] = useState(false);
-  return (
+  return ( <>
     <header className="flex items-center justify-between p-6 bg-neutral-900 text-white">
       <h1 className="text-2xl font-bold">
         🐘 СЫТЫЙ СЛОНЪ
@@ -20,7 +20,6 @@ export default function Header(){
         <a href="#">О нас</a>
         <a href="#">Контакты</a>
       </nav>
-    </header>
 </header>
 
 {menuOpen && (
@@ -31,5 +30,6 @@ export default function Header(){
     <a href="#">Контакты</a>
   </nav>
 )}
+</>
   );
 }
