@@ -1,4 +1,8 @@
-export default function Header() {
+"use client";
+
+import { useState } from "react";
+export default function Header(){
+  const [menuOpen, setMenuOpen] = useState(false);
   return (
     <header className="flex items-center justify-between p-6 bg-neutral-900 text-white">
       <h1 className="text-2xl font-bold">
