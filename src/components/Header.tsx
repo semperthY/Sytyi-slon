@@ -4,7 +4,9 @@ export default function Header() {
       <h1 className="text-2xl font-bold">
         🐘 СЫТЫЙ СЛОНЪ
       </h1>
-
+<button className="text-3xl md:hidden">
+  ☰
+</button>
       <nav className="hidden md:flex gap-6">
         <a href="#">Главная</a>
         <a href="#">Меню</a>
