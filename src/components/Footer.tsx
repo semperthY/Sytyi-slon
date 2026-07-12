@@ -1,4 +1,5 @@
 import { footer } from "../data/footer";
+import { contacts } from "../data/contacts";
 
 export default function Footer() {
   return (
@@ -18,14 +19,13 @@ export default function Footer() {
         </nav>
 
         <div className="text-center text-neutral-400">
-          <p>☎️ {footer.phone}</p>
-          <p>📧 {footer.email}</p>
+          <p>☎️ {contacts.phone}</p>
+          <p>📧 {contacts.email}</p>
         </div>
 
         <p className="text-sm text-neutral-500">
           © {new Date().getFullYear()} {footer.copyright}
         </p>
-
       </div>
     </footer>
   );
