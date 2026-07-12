@@ -1,31 +1,56 @@
+import Image from "next/image";
+
 export default function Hero() {
   return (
     <section
       id="hero"
-      className="min-h-screen bg-neutral-950 text-white flex flex-col items-center justify-center px-6 text-center"
+      className="relative flex min-h-screen items-center justify-center overflow-hidden bg-[#111111] px-6 text-white"
     >
-      <h1 className="text-5xl md:text-7xl font-bold">
-        🐘 СЫТЫЙ СЛОНЪ
-      </h1>
+      {/* Лёгкое свечение */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(212,175,55,0.08),transparent_65%)]" />
 
-      <p className="mt-6 text-xl text-yellow-400">
-        Домашняя кухня • Кофе • Уютная атмосфера
-      </p>
+      <div className="relative z-10 mx-auto flex max-w-4xl flex-col items-center text-center">
 
-      <p className="mt-6 max-w-2xl text-lg text-neutral-300">
-        Добро пожаловать в кафе «Сытый Слонъ».
-        Здесь вкусная еда, ароматный кофе и место,
-        где хочется остаться подольше.
-      </p>
+        {/* Логотип */}
+        <Image
+          src="/logo.png"
+          alt="Сытый Слонъ"
+          width={340}
+          height={190}
+          priority
+          className="mb-10 h-auto w-80 max-w-full"
+        />
 
-      <div className="mt-10 flex flex-col sm:flex-row justify-center gap-4">
-        <button className="rounded-xl bg-yellow-500 px-8 py-3 font-bold text-black">
-          📖 Смотреть меню
-        </button>
+        {/* Название */}
+        <h1 className="text-5xl font-bold tracking-[0.15em] md:text-7xl">
+          СЫТЫЙ СЛОНЪ
+        </h1>
 
-        <button className="rounded-xl border border-yellow-500 px-8 py-3">
-          📍 Как нас найти
-        </button>
+        {/* Слоган */}
+        <p className="mt-5 text-lg uppercase tracking-[0.35em] text-yellow-500 md:text-xl">
+          Домашняя кухня • Кофе • Уют
+        </p>
+
+        {/* Описание */}
+        <p className="mt-10 max-w-2xl text-lg leading-8 text-neutral-300">
+          Добро пожаловать в кафе, где домашняя кухня встречается
+          с уютной атмосферой и ароматом свежесваренного кофе.
+          Мы готовим с душой, чтобы каждый гость чувствовал себя как дома.
+        </p>
+
+        {/* Кнопки */}
+        <div className="mt-14 flex flex-col gap-4 sm:flex-row">
+
+          <button className="rounded-xl bg-yellow-500 px-10 py-4 font-semibold text-black transition hover:bg-yellow-400">
+            Посмотреть меню
+          </button>
+
+          <button className="rounded-xl border border-yellow-500 px-10 py-4 font-semibold text-yellow-500 transition hover:bg-yellow-500 hover:text-black">
+            Как нас найти
+          </button>
+
+        </div>
+
       </div>
     </section>
   );
