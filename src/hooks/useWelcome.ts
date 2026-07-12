@@ -5,15 +5,20 @@ import { useEffect, useState } from "react";
 const STORAGE_KEY = "welcome-shown";
 
 export function useWelcome() {
+  const [ready, setReady] = useState(false);
   const [visible, setVisible] = useState(false);
   const [closing, setClosing] = useState(false);
 
   useEffect(() => {
     const shown = localStorage.getItem(STORAGE_KEY);
 
-    if (shown) return;
+    if (shown) {
+      setReady(true);
+      return;
+    }
 
     setVisible(true);
+    setReady(true);
 
     const closeTimer = setTimeout(() => {
       setClosing(true);
@@ -31,6 +36,7 @@ export function useWelcome() {
   }, []);
 
   return {
+    ready,
     visible,
     closing,
   };

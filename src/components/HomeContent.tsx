@@ -11,7 +11,11 @@ import Contacts from "./Contacts";
 import Footer from "./Footer";
 
 export default function HomeContent() {
-  const { visible, closing } = useWelcome();
+  const { ready, visible, closing } = useWelcome();
+
+  if (!ready) {
+    return null;
+  }
 
   if (visible) {
     return <WelcomeScreen closing={closing} />;
