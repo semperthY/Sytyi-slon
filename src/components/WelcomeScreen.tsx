@@ -4,12 +4,15 @@ type WelcomeScreenProps = {
   closing: boolean;
 };
 
+export default function WelcomeScreen({
+  closing,
+}: WelcomeScreenProps) {
   return (
-      <div
-  className={`fixed inset-0 z-50 flex flex-col items-center justify-center bg-[#111111] px-8 text-center text-white ${
-    closing ? "welcome-closing" : "welcome-animation"
-  }`}
->
+    <div
+      className={`fixed inset-0 z-50 flex flex-col items-center justify-center bg-[#111111] px-8 text-center text-white ${
+        closing ? "welcome-closing" : "welcome-animation"
+      }`}
+    >
       {/* Логотип */}
       <div className="mb-10">
         <div className="text-8xl">🐘</div>
@@ -42,7 +45,6 @@ type WelcomeScreenProps = {
       <p className="text-sm tracking-[0.25em] text-yellow-600">
         {brand.since}
       </p>
-
     </div>
   );
 }
