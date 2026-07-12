@@ -1,3 +1,5 @@
+import { contacts } from "../data/contacts";
+
 export default function Contacts() {
   return (
     <section
@@ -10,15 +12,19 @@ export default function Contacts() {
         </h2>
 
         <p className="mb-4 text-lg text-neutral-300">
-          📍 Адрес: скоро добавим
+          📍 Адрес: {contacts.address}
         </p>
 
         <p className="mb-4 text-lg text-neutral-300">
-          ☎️ Телефон: скоро добавим
+          ☎️ Телефон: {contacts.phone}
+        </p>
+
+        <p className="mb-4 text-lg text-neutral-300">
+          📧 Email: {contacts.email}
         </p>
 
         <p className="text-lg text-neutral-300">
-          🕒 Часы работы: скоро добавим
+          🕒 Часы работы: {contacts.hours}
         </p>
       </div>
     </section>
