@@ -21,39 +21,45 @@ export default function Header() {
   return (
     <>
       <header
-        className={`fixed left-0 top-0 z-50 w-full transition-all duration-500 ${
+        className={`fixed top-0 left-0 z-50 w-full transition-all duration-500 ${
           scrolled
-            ? "bg-black/80 backdrop-blur-md shadow-lg"
+            ? "bg-black/80 backdrop-blur-md shadow-lg border-b border-yellow-500/20"
             : "bg-transparent"
         }`}
       >
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
+        <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6">
 
-          <a href="#hero" className="flex items-center gap-3">
-
+          {/* Логотип появляется только после прокрутки */}
+          <a
+            href="#hero"
+            className={`transition-all duration-500 ${
+              scrolled
+                ? "opacity-100 translate-x-0"
+                : "pointer-events-none -translate-x-4 opacity-0"
+            }`}
+          >
             <Image
               src="/logo.png"
               alt="Сытый Слонъ"
-              width={56}
-              height={56}
+              width={140}
+              height={60}
               className="h-12 w-auto"
             />
-
           </a>
 
           <button
-            className="text-3xl text-white md:hidden"
             onClick={() => setMenuOpen(!menuOpen)}
+            className="text-3xl text-white md:hidden"
           >
-            ☰
+            {menuOpen ? "✕" : "☰"}
           </button>
 
-          <nav className="hidden gap-8 md:flex">
+          <nav className="hidden items-center gap-10 md:flex">
             {navigation.map((item) => (
               <a
                 key={item.href}
                 href={item.href}
-                className="transition hover:text-yellow-500"
+                className="transition-colors duration-300 hover:text-yellow-500"
               >
                 {item.name}
               </a>
@@ -64,7 +70,7 @@ export default function Header() {
       </header>
 
       {menuOpen && (
-        <nav className="fixed left-0 top-20 z-40 flex w-full flex-col gap-4 bg-black/95 px-6 py-6 text-white backdrop-blur-md md:hidden">
+        <nav className="fixed left-0 top-20 z-40 flex w-full flex-col gap-5 bg-black/95 px-6 py-6 text-white backdrop-blur-md md:hidden">
           {navigation.map((item) => (
             <a
               key={item.href}
