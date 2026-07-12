@@ -1,4 +1,4 @@
-	"use client";
+"use client";
 
 import { useWelcome } from "../hooks/useWelcome";
 
@@ -13,10 +13,12 @@ import Footer from "./Footer";
 export default function HomeContent() {
   const { visible, closing } = useWelcome();
 
+  if (visible) {
+    return <WelcomeScreen closing={closing} />;
+  }
+
   return (
     <>
-      {visible && <WelcomeScreen closing={closing} />}
-
       <Header />
       <Hero />
       <MenuSection />
@@ -25,4 +27,4 @@ export default function HomeContent() {
       <Footer />
     </>
   );
-}2
+}
