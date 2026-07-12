@@ -1,9 +1,8 @@
 import { footer } from "../data/footer";
-import { contacts } from "../data/contacts";
 
 export default function Footer() {
   return (
-    <footer className="bg-black px-6 py-10 text-white">
+    <footer className="bg-black px-6 py-8 text-white border-t border-neutral-800">
       <div className="mx-auto flex max-w-6xl flex-col items-center gap-6">
 
         <nav className="flex flex-wrap justify-center gap-6">
@@ -18,14 +17,10 @@ export default function Footer() {
           ))}
         </nav>
 
-        <div className="text-center text-neutral-400">
-          <p>☎️ {contacts.phone}</p>
-          <p>📧 {contacts.email}</p>
-        </div>
-
         <p className="text-sm text-neutral-500">
           © {new Date().getFullYear()} {footer.copyright}
         </p>
+
       </div>
     </footer>
   );
