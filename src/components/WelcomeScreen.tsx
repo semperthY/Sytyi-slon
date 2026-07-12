@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { brand } from "../config/brand";
 
 type WelcomeScreenProps = {
@@ -14,10 +15,16 @@ export default function WelcomeScreen({
       }`}
     >
       {/* Логотип */}
-      <div className="mb-10">
-        <div className="text-8xl">🐘</div>
-      </div>
-
+    <div className="mb-10">
+      <Image
+       src="/logo.png"
+       alt="Сытый Слонъ"
+       width={360}
+       height={220}
+       priority
+       className="h-auto w-80 max-w-full"
+      />
+    </div>
       {/* Название */}
       <h1 className="text-4xl font-bold tracking-[0.2em]">
         {brand.name}
