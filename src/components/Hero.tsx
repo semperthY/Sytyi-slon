@@ -8,7 +8,7 @@ export default function Hero() {
     >
       {/* Фоновое изображение */}
       <Image
-        src="/hero-bg.jpg"
+        src="/hero-bg.png"
         alt="Интерьер кафе"
         fill
         priority
