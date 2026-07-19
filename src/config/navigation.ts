@@ -1,18 +1,22 @@
 export const navigation = [
   {
     name: "Главная",
-    href: "#hero",
+    href: "/",
   },
   {
     name: "Меню",
-    href: "#menu",
+    href: "/#menu",
   },
   {
-    name: "О нас",
-    href: "#about",
+    name: "Банкеты",
+    href: "/banquets",
+  },
+  {
+    name: "Поминальные обеды",
+    href: "/memorial",
   },
   {
     name: "Контакты",
-    href: "#contacts",
+    href: "/#contacts",
   },
 ];

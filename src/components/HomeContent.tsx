@@ -9,6 +9,7 @@ import MenuSection from "./MenuSection";
 import About from "./About";
 import Contacts from "./Contacts";
 import Footer from "./Footer";
+import Services from "./Services";
 
 export default function HomeContent() {
   const { ready, visible, closing } = useWelcome();
@@ -26,6 +27,7 @@ export default function HomeContent() {
       <Header />
       <Hero />
       <MenuSection />
+      <Services />
       <About />
       <Contacts />
       <Footer />
