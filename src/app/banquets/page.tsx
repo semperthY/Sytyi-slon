@@ -1,4 +1,7 @@
+import Header from "@/components/Header";
 import PageHero from "@/components/PageHero";
+import Footer from "@/components/Footer";
+import PageContainer from "@/components/PageContainer";
 import Link from "next/link";
 import {
   Phone,
@@ -40,12 +43,13 @@ const features = [
 export default function BanquetsPage() {
   return (
     <div className="min-h-screen bg-amber-50">
+      <Header />
       <PageHero
         title="Организация банкетов"
         subtitle="Свадьбы, юбилеи, дни рождения, корпоративы и другие торжественные мероприятия."
       />
 
-      <main className="mx-auto max-w-6xl px-6 py-16">
+<PageContainer>
 
         <section className="mb-20 grid gap-6 md:grid-cols-2">
           {features.map((item) => (
@@ -109,7 +113,9 @@ export default function BanquetsPage() {
           </Link>
         </section>
 
-      </main>
+</PageContainer>
+    
+    <Footer />
     </div>
   );
 }

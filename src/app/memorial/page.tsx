@@ -1,4 +1,7 @@
+import Header from "@/components/Header";
 import PageHero from "@/components/PageHero";
+import PageContainer from "@/components/PageContainer";
+import Footer from "@/components/Footer";
 import Link from "next/link";
 import {
   Phone,
@@ -40,12 +43,13 @@ const features = [
 export default function MemorialPage() {
   return (
     <div className="min-h-screen bg-amber-50">
+      <Header />
       <PageHero
         title="Поминальные обеды"
         subtitle="Организуем поминальный обед в спокойной и уважительной атмосфере."
       />
 
-      <main className="mx-auto max-w-6xl px-6 py-16">
+      <PageContainer>
         <section className="mb-20 grid gap-6 md:grid-cols-2">
           {features.map((item) => (
             <div
@@ -138,7 +142,9 @@ export default function MemorialPage() {
             Позвонить
           </Link>
         </section>
-      </main>
+      </PageContainer>
+
+      <Footer />
     </div>
   );
 }

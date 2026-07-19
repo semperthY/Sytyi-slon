@@ -6,7 +6,7 @@
 ▲ Next.js 16.2.10 (webpack)
 
   Creating an optimized production build ...
-✓ Compiled successfully in 4.8s
+✓ Compiled successfully in 5.5s
   Running TypeScript ...
 Error: invalid type: unit value, expected usize
 Next.js build worker exited with code: 1 and signal: null
