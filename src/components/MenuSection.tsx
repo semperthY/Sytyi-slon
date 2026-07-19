@@ -1,82 +1,126 @@
+"use client";
+
+import { useMemo, useState } from "react";
 import { menu } from "../data/menu";
 
-const categories = [
-  "Закуски",
-  "Горячие закуски",
-  "Салаты",
-  "Супы",
-  "Горячие блюда",
-  "Гарниры",
-  "Паста",
-  "Пицца",
-  "Бургеры",
-  "Десерты",
-  "Напитки",
-];
-
 export default function MenuSection() {
+  const grouped = useMemo(() => {
+    return menu.reduce((acc, item) => {
+      if (!acc[item.category]) {
+        acc[item.category] = [];
+      }
+
+      acc[item.category].push(item);
+
+      return acc;
+    }, {} as Record<string, typeof menu>);
+  }, []);
+
+  const categories = Object.keys(grouped);
+
+  const [opened, setOpened] = useState(categories[0] ?? "");
+
   return (
     <section
       id="menu"
       className="bg-neutral-950 px-6 py-20 text-white"
     >
-      <div className="mx-auto max-w-7xl">
+      <div className="mx-auto max-w-4xl">
 
         <h2 className="mb-14 text-center text-4xl font-bold">
           Наше меню
         </h2>
 
-        {categories.map((category) => {
-          const items = menu.filter(
-            (item) => item.category === category
-          );
+        <div className="space-y-4">
 
-          if (!items.length) return null;
+          {categories.map((category) => (
 
-          return (
-            <div key={category} className="mb-16">
-              <h3 className="mb-6 border-l-4 border-yellow-500 pl-4 text-3xl font-bold">
-                {category}
-              </h3>
+            <div
+              key={category}
+              className="overflow-hidden rounded-xl border border-neutral-800 bg-neutral-900"
+            >
 
-              <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-                {items.map((item) => (
-                  <div
-                    key={item.id}
-                    className="rounded-2xl bg-neutral-900 p-6 transition hover:-translate-y-1 hover:border hover:border-yellow-500"
-                  >
-                    <div className="mb-5 flex aspect-video items-center justify-center rounded-xl bg-neutral-800 text-5xl">
-                      🍽️
+              <button
+                onClick={() =>
+                  setOpened(
+                    opened === category ? "" : category
+                  )
+                }
+                className="flex w-full items-center justify-between px-6 py-5 text-left transition hover:bg-neutral-800"
+              >
+
+                <span className="text-2xl font-bold text-yellow-400">
+                  {category}
+                </span>
+
+                <span
+                  className={`text-2xl transition-transform duration-300 ${
+                    opened === category
+                      ? "rotate-90"
+                      : ""
+                  }`}
+                >
+                  ▶
+                </span>
+
+              </button>
+
+              <div
+                className={`overflow-hidden transition-all duration-300 ${
+                  opened === category
+                    ? "max-h-[3000px]"
+                    : "max-h-0"
+                }`}
+              >
+                <div className="divide-y divide-neutral-800">
+
+                  {grouped[category].map((item) => (
+
+                    <div
+                      key={item.id}
+                      className="flex items-start justify-between gap-4 px-6 py-4"
+                    >
+
+                      <div className="flex-1">
+
+                        <h3 className="text-lg font-medium text-white">
+                          {item.name}
+                        </h3>
+
+                        {item.weight && (
+                          <p className="mt-1 text-sm text-neutral-400">
+                            {item.weight}
+                          </p>
+                        )}
+
+                        {item.description && (
+                          <p className="mt-1 text-sm text-neutral-500">
+                            {item.description}
+                          </p>
+                        )}
+
+                      </div>
+
+                      <div className="whitespace-nowrap text-lg font-bold text-yellow-400">
+                        {item.price} ₽
+                      </div>
+
                     </div>
 
-                    <div className="flex items-start justify-between gap-3">
-                      <h4 className="text-xl font-semibold">
-                        {item.name}
-                      </h4>
+                  ))}
 
-                      <span className="rounded-full bg-yellow-500 px-3 py-1 font-bold text-black">
-                        {item.price}
-                      </span>
-                    </div>
+                </div>
 
-                    {item.weight && (
-                      <p className="mt-2 text-sm text-neutral-400">
-                        {item.weight}
-                      </p>
-                    )}
-
-                    {item.description && (
-                      <p className="mt-3 text-neutral-300">
-                        {item.description}
-                      </p>
-                    )}
-                  </div>
-                ))}
               </div>
+
             </div>
-          );
-        })}
+
+          ))}
+
+        </div>
+
       </div>
+
     </section>
   );
 }

@@ -1,65 +1,98 @@
-import { menu } from "@/data/menu";
-import MenuCard from "./MenuCard";
+"use client";
 
-const categories = [
-  "Закуски",
-  "Горячие закуски",
-  "Салаты",
-  "Супы",
-  "Горячие блюда",
-  "Гарниры",
-  "Паста",
-  "Пицца",
-  "Бургеры",
-  "Десерты",
-  "Напитки",
-];
+import { useMemo, useState } from "react";
+import { menu } from "@/data/menu";
 
 export default function Menu() {
+  const grouped = useMemo(() => {
+    return menu.reduce((acc, item) => {
+      if (!acc[item.category]) acc[item.category] = [];
+      acc[item.category].push(item);
+      return acc;
+    }, {} as Record<string, typeof menu>);
+  }, []);
+
+  const categories = Object.keys(grouped);
+
+  const [opened, setOpened] = useState(categories[0]);
+
   return (
-    <section
-      id="menu"
-      className="bg-black px-6 py-24 text-white"
-    >
-      <div className="mx-auto max-w-7xl">
+    <section id="menu" className="py-16 bg-white">
+      <div className="container mx-auto max-w-4xl px-4">
 
-        <div className="mb-16 text-center">
-          <h2 className="mb-4 text-4xl font-bold">
-            Наше меню
-          </h2>
+        <h2 className="text-4xl font-bold text-center mb-10">
+          Наше меню
+        </h2>
 
-          <div className="mx-auto h-1 w-24 rounded-full bg-yellow-500" />
+        <div className="space-y-3">
+          {categories.map((category) => (
+            <div
+              key={category}
+              className="border rounded-xl overflow-hidden shadow-sm"
+            >
+              <button
+                onClick={() =>
+                  setOpened(opened === category ? "" : category)
+                }
+                className="w-full flex items-center justify-between px-5 py-4 bg-stone-50 hover:bg-stone-100 transition"
+              >
+                <span className="text-lg font-semibold">
+                  {category}
+                </span>
 
-          <p className="mx-auto mt-6 max-w-2xl text-zinc-400">
-            Домашняя кухня, приготовленная с любовью.
-            Выберите любимые блюда из нашего меню.
-          </p>
-        </div>
+                <span
+                  className={`text-xl transition-transform ${
+                    opened === category ? "rotate-90" : ""
+                  }`}
+                >
+                  ▶
+                </span>
+              </button>
 
-        {categories.map((category) => {
-          const items = menu.filter(
-            (item) => item.category === category
-          );
+              <div
+                className={`transition-all duration-300 overflow-hidden ${
+                  opened === category
+                    ? "max-h-[3000px]"
+                    : "max-h-0"
+                }`}
+              >
+                <div className="bg-white">
 
-          if (!items.length) return null;
+                  {grouped[category].map((item) => (
+                    <div
+                      key={item.id}
+                      className="flex justify-between items-center px-5 py-4 border-t"
+                    >
+                      <div>
+                        <h3 className="font-medium">
+                          {item.name}
+                        </h3>
 
-          return (
-            <div key={category} className="mb-20">
-              <h3 className="mb-8 border-l-4 border-yellow-500 pl-4 text-3xl font-bold">
-                {category}
-              </h3>
+                        {item.weight && (
+                          <p className="text-sm text-gray-500">
+                            {item.weight}
+                          </p>
+                        )}
 
-              <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-                {items.map((item) => (
-                  <MenuCard
-                    key={item.id}
-                    item={item}
-                  />
-                ))}
+                        {item.description && (
+                          <p className="text-sm text-gray-500">
+                            {item.description}
+                          </p>
+                        )}
+                      </div>
+
+                      <span className="font-bold whitespace-nowrap">
+                        {item.price} ₽
+                      </span>
+                    </div>
+                  ))}
+
+                </div>
               </div>
             </div>
-          );
-        })}
+          ))}
+        </div>
+
       </div>
     </section>
   );
