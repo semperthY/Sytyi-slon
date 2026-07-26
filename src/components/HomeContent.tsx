@@ -8,7 +8,6 @@ import Hero from "./Hero";
 import Menu from "./menu/Menu";
 import About from "./About";
 import Contacts from "./Contacts";
-import Footer from "./Footer";
 import Services from "./Services";
 
 export default function HomeContent() {
@@ -30,7 +29,6 @@ export default function HomeContent() {
       <Services />
       <About />
       <Contacts />
-      <Footer />
     </>
   );
 }
