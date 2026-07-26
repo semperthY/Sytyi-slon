@@ -21,22 +21,20 @@ export default function Header() {
   return (
     <>
       <header
-        className={`fixed top-0 left-0 z-50 w-full transition-all duration-500 ${
-          scrolled
+        className={`fixed top-0 left-0 z-50 w-full transition-all duration-500 ${scrolled
             ? "bg-black/80 backdrop-blur-md shadow-lg border-b border-yellow-500/20"
             : "bg-transparent"
-        }`}
+          }`}
       >
         <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6">
 
           {/* Логотип появляется только после прокрутки */}
           <a
             href="#hero"
-            className={`transition-all duration-500 ${
-              scrolled
+            className={`transition-all duration-500 ${scrolled
                 ? "opacity-100 translate-x-0"
                 : "pointer-events-none -translate-x-4 opacity-0"
-            }`}
+              }`}
           >
             <Image
               src="/logo.png"
@@ -70,7 +68,7 @@ export default function Header() {
       </header>
 
       {menuOpen && (
-        <nav className="fixed left-0 top-20 z-40 flex w-full flex-col gap-5 bg-black/95 px-6 py-6 text-white backdrop-blur-md md:hidden">
+        <nav className="fixed left-0 top-20 z-40 flex max-h-[calc(100vh-5rem)] w-full flex-col gap-5 bg-black/95 px-6 py-6 text-white backdrop-blur-md md:hidden overflow-y-auto">
           {navigation.map((item) => (
             <a
               key={item.href}
