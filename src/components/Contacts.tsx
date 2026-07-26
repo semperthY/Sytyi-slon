@@ -51,7 +51,7 @@ export default function Contacts() {
             className="group relative overflow-hidden rounded-2xl border border-neutral-700 shadow-xl"
           >
             <img
-              src="/images/map-preview.png"
+              src="/images/map-preview.webp"
               alt="Карта расположения кафе"
               className="h-64 w-full object-cover transition duration-500 group-hover:scale-105 md:h-80"
             />
