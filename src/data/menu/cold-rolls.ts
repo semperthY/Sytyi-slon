@@ -1,0 +1,46 @@
+import type { MenuItem } from "./types";
+
+export const coldRolls: MenuItem[] = [
+    {
+        id: "philadelphia",
+        name: "Филадельфия",
+        pieces: 8,
+        price: 450,
+        description: "Лосось, сливочный сыр, огурец, рис, нори",
+    },
+    {
+        id: "california",
+        name: "Калифорния",
+        pieces: 8,
+        price: 400,
+        description: "Снежный краб, огурец, японский майонез, масаго, рис, нори",
+    },
+    {
+        id: "bambito",
+        name: "Бамбито",
+        pieces: 8,
+        price: 400,
+        description: "Снежный краб, огурец, сливочный сыр, соус терияки, рис, нори",
+    },
+    {
+        id: "cucumber-roll",
+        name: "Ролл с огурцом",
+        pieces: 8,
+        price: 200,
+        description: "Огурец, рис, нори",
+    },
+    {
+        id: "salmon-roll",
+        name: "Ролл с лососем",
+        pieces: 8,
+        price: 300,
+        description: "Лосось, рис, нори",
+    },
+    {
+        id: "shrimp-roll",
+        name: "Ролл с креветкой",
+        pieces: 8,
+        price: 300,
+        description: "Креветка, рис, нори",
+    },
+];
