@@ -74,6 +74,7 @@ export default function BanquetsPage() {
             </div>
           ))}
         </section>
+
         <section className="mb-20 rounded-2xl border border-neutral-800 bg-neutral-900 p-10">
           <h2 className="mb-6 text-3xl font-bold text-white">
             Индивидуальное банкетное меню
@@ -82,39 +83,48 @@ export default function BanquetsPage() {
           <p className="mb-6 text-lg leading-8 text-neutral-400">
             Банкетное меню составляется индивидуально с учётом ваших пожеланий,
             бюджета и количества гостей. Вы можете выбрать любые блюда из
-            нашего ассортимента, а наши сотрудники помогут подобрать оптимальное
-            меню именно для вашего мероприятия.
+            нашего ассортимента, а наши сотрудники помогут подобрать
+            оптимальное меню именно для вашего мероприятия.
           </p>
 
-          <p className="mb-8 text-xl font-semibold text-amber-500">
+          <p className="text-xl font-semibold text-amber-500">
             Стоимость банкетного меню — от 2500 ₽ с человека.
           </p>
-
-          <a
-            href="/banquet-menu.pdf"
-            className="inline-flex items-center rounded-xl bg-amber-600 px-6 py-4 font-semibold text-white transition hover:bg-amber-700"
-          >
-            📄 Скачать банкетное меню (PDF)
-          </a>
         </section>
-
         <section className="rounded-2xl border border-amber-600/30 bg-neutral-900 p-10 text-center">
           <h2 className="mb-4 text-3xl font-bold text-white">
             Забронировать банкет
           </h2>
 
-          <p className="mx-auto mb-8 max-w-2xl text-lg leading-8 text-neutral-400">
+          <p className="mx-auto mb-10 max-w-2xl text-lg leading-8 text-neutral-400">
             Свяжитесь с нами, и мы поможем подобрать банкетное меню,
             ответим на все вопросы и организуем ваше мероприятие.
           </p>
 
-          <Link
-            href="tel:+79159847077"
-            className="inline-flex items-center gap-2 rounded-xl bg-amber-600 px-8 py-4 font-semibold text-white transition hover:bg-amber-700"
-          >
-            <Phone size={20} />
-            Позвонить
-          </Link>
+          <div className="flex flex-col items-center justify-center gap-8 md:flex-row">
+            <Link
+              href="tel:+79159847077"
+              className="inline-flex items-center gap-3 rounded-xl bg-amber-600 px-8 py-4 font-semibold text-white transition hover:bg-amber-700"
+            >
+              <Phone size={22} />
+              Позвонить
+            </Link>
+
+            <div className="hidden h-20 w-px bg-neutral-700 md:block" />
+
+            <div className="text-center md:text-left">
+              <a
+                href="tel:+79159847077"
+                className="text-3xl font-bold text-white transition hover:text-amber-500"
+              >
+                +7 (915) 984-70-77
+              </a>
+
+              <p className="mt-2 text-neutral-400">
+                Ежедневно с 10:00 до 22:00
+              </p>
+            </div>
+          </div>
         </section>
       </main>
     </div>
