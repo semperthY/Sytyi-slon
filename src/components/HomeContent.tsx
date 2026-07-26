@@ -5,7 +5,7 @@ import { useWelcome } from "../hooks/useWelcome";
 import WelcomeScreen from "./WelcomeScreen";
 import Header from "./Header";
 import Hero from "./Hero";
-import MenuSection from "./MenuSection";
+import Menu from "./menu/Menu";
 import About from "./About";
 import Contacts from "./Contacts";
 import Footer from "./Footer";
@@ -26,7 +26,7 @@ export default function HomeContent() {
     <>
       <Header />
       <Hero />
-      <MenuSection />
+      <Menu />
       <Services />
       <About />
       <Contacts />
