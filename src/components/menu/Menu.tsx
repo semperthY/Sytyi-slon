@@ -4,7 +4,7 @@ import { useState } from "react";
 import { menu } from "@/data/menu";
 
 export default function Menu() {
-  const [opened, setOpened] = useState(menu[0]?.title ?? "");
+  const [opened, setOpened] = useState("");
 
   return (
     <section id="menu" className="bg-neutral-950 px-6 py-20 text-white">
@@ -28,18 +28,16 @@ export default function Menu() {
                 </span>
 
                 <span
-                  className={`text-2xl transition-transform duration-300 ${
-                    opened === category.title ? "rotate-90" : ""
-                  }`}
+                  className={`text-2xl transition-transform duration-300 ${opened === category.title ? "rotate-90" : ""
+                    }`}
                 >
                   ▶
                 </span>
               </button>
 
               <div
-                className={`overflow-hidden transition-all duration-300 ${
-                  opened === category.title ? "max-h-[3000px]" : "max-h-0"
-                }`}
+                className={`overflow-hidden transition-all duration-300 ${opened === category.title ? "max-h-[3000px]" : "max-h-0"
+                  }`}
               >
                 <div className="divide-y divide-neutral-800">
                   {category.items.map((item) => (

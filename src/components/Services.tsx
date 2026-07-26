@@ -25,13 +25,13 @@ export default function Services() {
   ];
 
   return (
-    <section className="bg-gray-50 py-16">
+    <section className="bg-neutral-950 py-20">
       <div className="mx-auto max-w-6xl px-6">
-        <h2 className="mb-4 text-center text-4xl font-bold">
+        <h2 className="mb-4 text-center text-4xl font-bold text-white">
           Наши услуги
         </h2>
 
-        <p className="mx-auto mb-12 max-w-2xl text-center text-gray-600">
+        <p className="mx-auto mb-14 max-w-2xl text-center text-neutral-400">
           Кафе «Сытый Слонъ» — место, где можно вкусно пообедать,
           провести праздник или организовать поминальный обед.
         </p>
@@ -40,19 +40,39 @@ export default function Services() {
           {services.map((service) => (
             <div
               key={service.title}
-              className="flex flex-col rounded-2xl border bg-white p-8 shadow-sm transition hover:-translate-y-1 hover:shadow-lg"
+              className="
+                flex flex-col
+                rounded-2xl
+                border border-neutral-800
+                bg-neutral-900
+                p-8
+                transition-all
+                duration-300
+                hover:-translate-y-1
+                hover:border-amber-600
+              "
             >
-              <h3 className="mb-4 text-2xl font-semibold">
+              <h3 className="mb-4 text-2xl font-semibold text-white">
                 {service.title}
               </h3>
 
-              <p className="mb-8 flex-1 text-gray-600">
+              <p className="mb-8 flex-1 leading-7 text-neutral-400">
                 {service.description}
               </p>
 
               <Link
                 href={service.href}
-                className="rounded-xl bg-amber-600 px-5 py-3 text-center font-medium text-white transition hover:bg-amber-700"
+                className="
+                  rounded-xl
+                  bg-amber-600
+                  px-5
+                  py-3
+                  text-center
+                  font-medium
+                  text-white
+                  transition
+                  hover:bg-amber-700
+                "
               >
                 {service.button}
               </Link>
