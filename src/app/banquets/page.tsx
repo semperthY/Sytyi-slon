@@ -43,6 +43,7 @@ export default function BanquetsPage() {
       <PageHero
         title="Организация банкетов"
         subtitle="Свадьбы, юбилеи, дни рождения, корпоративы и другие торжественные мероприятия."
+        image="/images/banquets-hero.jpg"
       />
 
       <main className="mx-auto max-w-6xl px-6 py-16">
@@ -121,7 +122,7 @@ export default function BanquetsPage() {
               </a>
 
               <p className="mt-2 text-neutral-400">
-                Ежедневно с 10:00 до 22:00
+                Ежедневно с 08:00 до 20:00
               </p>
             </div>
           </div>

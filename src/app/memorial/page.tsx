@@ -43,6 +43,7 @@ export default function MemorialPage() {
       <PageHero
         title="Поминальные обеды"
         subtitle="Организуем поминальный обед в спокойной и уважительной атмосфере."
+        image="/images/memorial-hero.jpg"
       />
 
       <main className="mx-auto max-w-6xl px-6 py-16">
@@ -154,24 +155,39 @@ export default function MemorialPage() {
         </section>
 
         <section className="rounded-2xl border border-amber-600/30 bg-neutral-900 p-10 text-center">
-
           <h2 className="mb-4 text-3xl font-bold text-white">
             Свяжитесь с нами
           </h2>
 
-          <p className="mx-auto mb-8 max-w-2xl text-lg leading-8 text-neutral-400">
-            Поможем выбрать подходящее меню, согласуем дату проведения,
-            ответим на все вопросы и подготовим всё к вашему приезду.
+          <p className="mx-auto mb-10 max-w-2xl text-lg leading-8 text-neutral-400">
+            Поможем выбрать подходящее меню, согласуем дату проведения
+            и ответим на все ваши вопросы.
           </p>
 
-          <Link
-            href="tel:+79159847077"
-            className="inline-flex items-center gap-2 rounded-xl bg-amber-600 px-8 py-4 font-semibold text-white transition hover:bg-amber-700"
-          >
-            <Phone size={20} />
-            Позвонить
-          </Link>
+          <div className="flex flex-col items-center justify-center gap-8 md:flex-row">
+            <Link
+              href="tel:+79159847077"
+              className="inline-flex items-center gap-3 rounded-xl bg-amber-600 px-8 py-4 font-semibold text-white transition hover:bg-amber-700"
+            >
+              <Phone size={22} />
+              Позвонить
+            </Link>
 
+            <div className="hidden h-20 w-px bg-neutral-700 md:block" />
+
+            <div className="text-center md:text-left">
+              <a
+                href="tel:+79159847077"
+                className="text-3xl font-bold text-white transition hover:text-amber-500"
+              >
+                +7 (915) 984-70-77
+              </a>
+
+              <p className="mt-2 text-neutral-400">
+                Ежедневно с 08:00 до 20:00
+              </p>
+            </div>
+          </div>
         </section>
       </main>
     </div>
