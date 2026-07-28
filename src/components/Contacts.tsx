@@ -28,9 +28,27 @@ export default function Contacts() {
               </a>
             </p>
 
-            <p>☎️ {contacts.phone}</p>
+            {contacts.phones.map((phone) => (
+              <p key={phone}>
+                ☎️{" "}
+                <a
+                  href={`tel:${phone.replace(/\D/g, "")}`}
+                  className="transition hover:text-amber-400"
+                >
+                  {phone}
+                </a>
+              </p>
+            ))}
 
-            <p>📧 {contacts.email}</p>
+            <p>
+              📧{" "}
+              <a
+                href={`mailto:${contacts.email}`}
+                className="transition hover:text-amber-400"
+              >
+                {contacts.email}
+              </a>
+            </p>
 
             <p>🕒 {contacts.hours}</p>
 

@@ -44,7 +44,7 @@ export default function Header() {
         .querySelector(href.substring(1))
         ?.scrollIntoView({ behavior: "smooth" });
     } else {
-      router.push(href);
+      window.location.href = href;
     }
 
     setMenuOpen(false);
@@ -54,16 +54,16 @@ export default function Header() {
     <>
       <header
         className={`fixed top-0 left-0 z-50 w-full transition-all duration-500 ${headerSolid
-            ? "bg-black/80 backdrop-blur-md shadow-lg border-b border-yellow-500/20"
-            : "bg-transparent"
+          ? "bg-black/80 backdrop-blur-md shadow-lg border-b border-yellow-500/20"
+          : "bg-transparent"
           }`}
       >
         <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6">
           <Link
             href="/"
             className={`transition-all duration-500 ${headerSolid
-                ? "opacity-100 translate-x-0"
-                : "pointer-events-none -translate-x-4 opacity-0"
+              ? "opacity-100 translate-x-0"
+              : "pointer-events-none -translate-x-4 opacity-0"
               }`}
           >
             <Image
@@ -99,8 +99,8 @@ export default function Header() {
                   href={item.href}
                   onClick={(e) => handleNavigation(e, item.href)}
                   className={`transition-colors duration-300 ${active
-                      ? "font-semibold text-yellow-500"
-                      : "hover:text-yellow-500"
+                    ? "font-semibold text-yellow-500"
+                    : "hover:text-yellow-500"
                     }`}
                 >
                   {item.name}
