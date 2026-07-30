@@ -16,6 +16,12 @@ export default function HomeContent() {
   const pathname = usePathname();
   const { ready, visible, closing } = useWelcome();
 
+  console.log({
+    ready,
+    visible,
+    closing,
+  });
+
   useEffect(() => {
     if (pathname !== "/") return;
 
