@@ -30,7 +30,7 @@ export default function Footer() {
         </div>
 
         <div className="mt-10 border-t border-stone-700 pt-6 text-center text-sm text-stone-500">
-          © {new Date().getFullYear()} Сытый Слонъ. Все права защищены.
+          © {new Date().getFullYear()} Сытый Слонъ. Все права защищены. sempY prod.
         </div>
       </div>
     </footer>

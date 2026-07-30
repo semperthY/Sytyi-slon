@@ -26,7 +26,7 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://сытыйслон.рф"),
+  metadataBase: new URL("https://сытыйслонъ.рф"),
 
   title: {
     default: "Сытый Слонъ | Кафе домашней кухни",
@@ -68,7 +68,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "ru_RU",
-    url: "https://sytyi-slon.vercel.app",
+    url: "https://сытыйслонъ.рф",
     siteName: "Сытый Слонъ",
     title: "Сытый Слонъ | Кафе домашней кухни",
     description:

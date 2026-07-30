@@ -29,15 +29,18 @@ export default function Contacts() {
             </p>
 
             {contacts.phones.map((phone) => (
-              <p key={phone}>
-                ☎️{" "}
+              <div key={phone.number} className="space-y-1">
+                <p className="text-sm text-neutral-400">
+                  {phone.title}
+                </p>
+
                 <a
-                  href={`tel:${phone.replace(/\D/g, "")}`}
-                  className="transition hover:text-amber-400"
+                  href={`tel:${phone.number.replace(/\D/g, "")}`}
+                  className="block text-lg transition hover:text-amber-400"
                 >
-                  {phone}
+                  ☎️ {phone.number}
                 </a>
-              </p>
+              </div>
             ))}
 
             <p>
