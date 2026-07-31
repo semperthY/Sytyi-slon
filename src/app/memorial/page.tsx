@@ -177,10 +177,10 @@ export default function MemorialPage() {
 
             <div className="text-center md:text-left">
               <a
-                href="tel:+79159847077"
+                href="tel:+79010552424"
                 className="text-3xl font-bold text-white transition hover:text-amber-500"
               >
-                +7 (915) 984-70-77
+                +7 (901) 055-24-24
               </a>
 
               <p className="mt-2 text-neutral-400">

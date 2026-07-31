@@ -5,9 +5,9 @@ export default function RestaurantSchema() {
 
         name: "Сытый Слонъ",
 
-        url: "https://sytyi-slon.vercel.app",
+        url: "https://сытыйслонъ.рф",
 
-        telephone: "+79159847077",
+        telephone: "+79010552424",
 
         address: {
             "@type": "PostalAddress",
