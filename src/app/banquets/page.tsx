@@ -104,7 +104,7 @@ export default function BanquetsPage() {
 
           <div className="flex flex-col items-center justify-center gap-8 md:flex-row">
             <Link
-              href="tel:+79159847077"
+              href="tel:+7010552424"
               className="inline-flex items-center gap-3 rounded-xl bg-amber-600 px-8 py-4 font-semibold text-white transition hover:bg-amber-700"
             >
               <Phone size={22} />
