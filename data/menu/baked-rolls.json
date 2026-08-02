@@ -1,0 +1,50 @@
+[
+    {
+        "slug": "shen",
+        "name": "Шен",
+        "description": "",
+        "value": "8 шт.",
+        "price": 450,
+        "image": "",
+        "visible": true,
+        "available": true,
+        "popular": false,
+        "deleted": false,
+        "sort": 1,
+        "createdAt": "2026-08-02T18:19:24.089Z",
+        "updatedAt": "2026-08-02T18:19:24.090Z",
+        "id": "BLR001"
+    },
+    {
+        "slug": "caesar",
+        "name": "Цезарь",
+        "description": "",
+        "value": "8 шт.",
+        "price": 450,
+        "image": "",
+        "visible": true,
+        "available": true,
+        "popular": false,
+        "deleted": false,
+        "sort": 2,
+        "createdAt": "2026-08-02T18:19:24.090Z",
+        "updatedAt": "2026-08-02T18:19:24.090Z",
+        "id": "BLR002"
+    },
+    {
+        "slug": "kaori",
+        "name": "Каори",
+        "description": "",
+        "value": "8 шт.",
+        "price": 450,
+        "image": "",
+        "visible": true,
+        "available": true,
+        "popular": false,
+        "deleted": false,
+        "sort": 3,
+        "createdAt": "2026-08-02T18:19:24.090Z",
+        "updatedAt": "2026-08-02T18:19:24.090Z",
+        "id": "BLR003"
+    }
+]

@@ -1,0 +1,9 @@
+Options -Indexes
+
+<Files ".env">
+    Require all denied
+</Files>
+
+<FilesMatch "^(\.ht|\.git)">
+    Require all denied
+</FilesMatch>

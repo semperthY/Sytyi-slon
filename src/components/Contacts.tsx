@@ -40,6 +40,15 @@ export default function Contacts() {
                 >
                   ☎️ {phone.number}
                 </a>
+
+                {phone.secondNumber && (
+                  <a
+                    href={`tel:${phone.secondNumber.replace(/\D/g, "")}`}
+                    className="block text-lg transition hover:text-amber-400"
+                  >
+                    ☎️ {phone.secondNumber}
+                  </a>
+                )}
               </div>
             ))}
 

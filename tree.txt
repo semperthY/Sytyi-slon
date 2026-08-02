@@ -1,0 +1,512 @@
+Структура папок
+Серийный номер тома: A096-0F25
+C:.
+|   .aider.chat.history.md
+|   .aider.input.history
+|   .env.local
+|   .gitignore
+|   0
+|   eslint.config.mjs
+|   next-env.d.ts
+|   next.config.ts
+|   package-lock.json
+|   package.json
+|   postcss.config.mjs
+|   README.md
+|   tree.txt
+|   tsconfig.json
+|   
++---.aider.tags.cache.v4
+|       cache.db
+|       
++---.next
+|   |   app-path-routes-manifest.json
+|   |   build-manifest.json
+|   |   BUILD_ID
+|   |   export-detail.json
+|   |   export-marker.json
+|   |   images-manifest.json
+|   |   next-minimal-server.js.nft.json
+|   |   next-server.js.nft.json
+|   |   package.json
+|   |   prerender-manifest.json
+|   |   react-loadable-manifest.json
+|   |   required-server-files.js
+|   |   required-server-files.json
+|   |   routes-manifest.json
+|   |   trace
+|   |   trace-build
+|   |   
+|   +---cache
+|   |   |   .previewinfo
+|   |   |   .rscinfo
+|   |   |   .tsbuildinfo
+|   |   |   
+|   |   +---swc
+|   |   |   \---plugins
+|   |   |       \---windows_x86_64_24.0.0
+|   |   \---webpack
+|   |       +---client-production
+|   |       |       0.pack
+|   |       |       1.pack
+|   |       |       10.pack
+|   |       |       11.pack
+|   |       |       12.pack
+|   |       |       13.pack
+|   |       |       14.pack
+|   |       |       2.pack
+|   |       |       3.pack
+|   |       |       4.pack
+|   |       |       5.pack
+|   |       |       6.pack
+|   |       |       7.pack
+|   |       |       8.pack
+|   |       |       9.pack
+|   |       |       index.pack
+|   |       |       index.pack.old
+|   |       |       
+|   |       +---edge-server-production
+|   |       |       0.pack
+|   |       |       index.pack
+|   |       |       index.pack.old
+|   |       |       
+|   |       \---server-production
+|   |               0.pack
+|   |               1.pack
+|   |               10.pack
+|   |               11.pack
+|   |               2.pack
+|   |               3.pack
+|   |               4.pack
+|   |               5.pack
+|   |               6.pack
+|   |               7.pack
+|   |               8.pack
+|   |               9.pack
+|   |               index.pack
+|   |               index.pack.old
+|   |               
+|   +---diagnostics
+|   |       build-diagnostics.json
+|   |       framework.json
+|   |       
+|   +---server
+|   |   |   app-paths-manifest.json
+|   |   |   functions-config-manifest.json
+|   |   |   interception-route-rewrite-manifest.js
+|   |   |   middleware-build-manifest.js
+|   |   |   middleware-manifest.json
+|   |   |   middleware-react-loadable-manifest.js
+|   |   |   next-font-manifest.js
+|   |   |   next-font-manifest.json
+|   |   |   pages-manifest.json
+|   |   |   prefetch-hints.json
+|   |   |   server-reference-manifest.js
+|   |   |   server-reference-manifest.json
+|   |   |   webpack-runtime.js
+|   |   |   
+|   |   +---app
+|   |   |   |   banquets.html
+|   |   |   |   banquets.meta
+|   |   |   |   banquets.rsc
+|   |   |   |   favicon.ico.body
+|   |   |   |   favicon.ico.meta
+|   |   |   |   gallery.html
+|   |   |   |   gallery.meta
+|   |   |   |   gallery.rsc
+|   |   |   |   index.html
+|   |   |   |   index.meta
+|   |   |   |   index.rsc
+|   |   |   |   memorial.html
+|   |   |   |   memorial.meta
+|   |   |   |   memorial.rsc
+|   |   |   |   page.js
+|   |   |   |   page.js.nft.json
+|   |   |   |   page_client-reference-manifest.js
+|   |   |   |   robots.txt.body
+|   |   |   |   robots.txt.meta
+|   |   |   |   sitemap.xml.body
+|   |   |   |   sitemap.xml.meta
+|   |   |   |   _global-error.html
+|   |   |   |   _global-error.meta
+|   |   |   |   _global-error.rsc
+|   |   |   |   _not-found.html
+|   |   |   |   _not-found.meta
+|   |   |   |   _not-found.rsc
+|   |   |   |   
+|   |   |   +---banquets
+|   |   |   |       page.js
+|   |   |   |       page.js.nft.json
+|   |   |   |       page_client-reference-manifest.js
+|   |   |   |       
+|   |   |   +---banquets.segments
+|   |   |   |   |   banquets.segment.rsc
+|   |   |   |   |   _full.segment.rsc
+|   |   |   |   |   _head.segment.rsc
+|   |   |   |   |   _index.segment.rsc
+|   |   |   |   |   _tree.segment.rsc
+|   |   |   |   |   
+|   |   |   |   \---banquets
+|   |   |   |           __PAGE__.segment.rsc
+|   |   |   |           
+|   |   |   +---favicon.ico
+|   |   |   |       route.js
+|   |   |   |       route.js.nft.json
+|   |   |   |       
+|   |   |   +---gallery
+|   |   |   |       page.js
+|   |   |   |       page.js.nft.json
+|   |   |   |       page_client-reference-manifest.js
+|   |   |   |       
+|   |   |   +---gallery.segments
+|   |   |   |   |   gallery.segment.rsc
+|   |   |   |   |   _full.segment.rsc
+|   |   |   |   |   _head.segment.rsc
+|   |   |   |   |   _index.segment.rsc
+|   |   |   |   |   _tree.segment.rsc
+|   |   |   |   |   
+|   |   |   |   \---gallery
+|   |   |   |           __PAGE__.segment.rsc
+|   |   |   |           
+|   |   |   +---index.segments
+|   |   |   |       _full.segment.rsc
+|   |   |   |       _head.segment.rsc
+|   |   |   |       _index.segment.rsc
+|   |   |   |       _tree.segment.rsc
+|   |   |   |       __PAGE__.segment.rsc
+|   |   |   |       
+|   |   |   +---memorial
+|   |   |   |       page.js
+|   |   |   |       page.js.nft.json
+|   |   |   |       page_client-reference-manifest.js
+|   |   |   |       
+|   |   |   +---memorial.segments
+|   |   |   |   |   memorial.segment.rsc
+|   |   |   |   |   _full.segment.rsc
+|   |   |   |   |   _head.segment.rsc
+|   |   |   |   |   _index.segment.rsc
+|   |   |   |   |   _tree.segment.rsc
+|   |   |   |   |   
+|   |   |   |   \---memorial
+|   |   |   |           __PAGE__.segment.rsc
+|   |   |   |           
+|   |   |   +---robots.txt
+|   |   |   |       route.js
+|   |   |   |       route.js.nft.json
+|   |   |   |       route_client-reference-manifest.js
+|   |   |   |       
+|   |   |   +---sitemap.xml
+|   |   |   |       route.js
+|   |   |   |       route.js.nft.json
+|   |   |   |       route_client-reference-manifest.js
+|   |   |   |       
+|   |   |   +---_global-error
+|   |   |   |       page.js
+|   |   |   |       page.js.nft.json
+|   |   |   |       page_client-reference-manifest.js
+|   |   |   |       
+|   |   |   +---_global-error.segments
+|   |   |   |   |   _full.segment.rsc
+|   |   |   |   |   _global-error.segment.rsc
+|   |   |   |   |   _head.segment.rsc
+|   |   |   |   |   _index.segment.rsc
+|   |   |   |   |   _tree.segment.rsc
+|   |   |   |   |   
+|   |   |   |   \---_global-error
+|   |   |   |           __PAGE__.segment.rsc
+|   |   |   |           
+|   |   |   +---_not-found
+|   |   |   |       page.js
+|   |   |   |       page.js.nft.json
+|   |   |   |       page_client-reference-manifest.js
+|   |   |   |       
+|   |   |   \---_not-found.segments
+|   |   |       |   _full.segment.rsc
+|   |   |       |   _head.segment.rsc
+|   |   |       |   _index.segment.rsc
+|   |   |       |   _not-found.segment.rsc
+|   |   |       |   _tree.segment.rsc
+|   |   |       |   
+|   |   |       \---_not-found
+|   |   |               __PAGE__.segment.rsc
+|   |   |               
+|   |   +---chunks
+|   |   |       445.js
+|   |   |       524.js
+|   |   |       595.js
+|   |   |       665.js
+|   |   |       813.js
+|   |   |       
+|   |   \---pages
+|   |           404.html
+|   |           500.html
+|   |           
+|   +---static
+|   |   +---7NTXBkd7j0g27jDSV8v1l
+|   |   |       _buildManifest.js
+|   |   |       _ssgManifest.js
+|   |   |       
+|   |   +---chunks
+|   |   |   |   4bd1b696-215e5051988c3dde.js
+|   |   |   |   500-c99b8dfd3de17c86.js
+|   |   |   |   600-afe167297d11379e.js
+|   |   |   |   794-274e9c1c2b341201.js
+|   |   |   |   899.1813981119fa1f8a.js
+|   |   |   |   966.1775eb621d8d3e09.js
+|   |   |   |   framework-3b18aa61b3b8f46e.js
+|   |   |   |   main-5a6033acf5c9ee4f.js
+|   |   |   |   main-app-4993a6242fcec934.js
+|   |   |   |   polyfills-42372ed130431b0a.js
+|   |   |   |   webpack-9373ee31a8121dfd.js
+|   |   |   |   
+|   |   |   +---app
+|   |   |   |   |   layout-4a4b7aadf1b0115d.js
+|   |   |   |   |   not-found-be0a9fe5fb4b4a25.js
+|   |   |   |   |   page-c9fd33010f0d5a30.js
+|   |   |   |   |   
+|   |   |   |   +---banquets
+|   |   |   |   |       page-3a9cbfaed3ca2c26.js
+|   |   |   |   |       
+|   |   |   |   +---gallery
+|   |   |   |   |       page-24e87b514f4d33d2.js
+|   |   |   |   |       
+|   |   |   |   +---memorial
+|   |   |   |   |       page-3a9cbfaed3ca2c26.js
+|   |   |   |   |       
+|   |   |   |   +---robots.txt
+|   |   |   |   |       route-8888527e09e01886.js
+|   |   |   |   |       
+|   |   |   |   +---sitemap.xml
+|   |   |   |   |       route-8888527e09e01886.js
+|   |   |   |   |       
+|   |   |   |   +---_global-error
+|   |   |   |   |       page-8888527e09e01886.js
+|   |   |   |   |       
+|   |   |   |   \---_not-found
+|   |   |   |           page-8888527e09e01886.js
+|   |   |   |           
+|   |   |   \---next
+|   |   |       \---dist
+|   |   |           \---client
+|   |   |               \---components
+|   |   |                   \---builtin
+|   |   |                           app-error-8888527e09e01886.js
+|   |   |                           forbidden-8888527e09e01886.js
+|   |   |                           global-error-b84d375efde1be3c.js
+|   |   |                           unauthorized-8888527e09e01886.js
+|   |   |                           
+|   |   +---css
+|   |   |       76c3ddcb39eabcd7.css
+|   |   |       
+|   |   \---media
+|   |           013b72fa676f92e0-s.woff2
+|   |           22a5144ee8d83bca-s.p.woff2
+|   |           28a2004cf8372660-s.woff2
+|   |           2b5b02fc7e511755-s.woff2
+|   |           47f136985ef5b5cb-s.p.woff2
+|   |           4ead58c4dcc3f285-s.woff2
+|   |           65f03d54ccadf4a8-s.woff2
+|   |           7d4881bb7e1bf84d-s.p.woff2
+|   |           9766a7e9e2e0ad5a-s.woff2
+|   |           aa016aab0e6d1295-s.woff2
+|   |           b66cf8e69499582a-s.woff2
+|   |           b9408752a0c24fb9-s.woff2
+|   |           e038a29029a234f2-s.woff2
+|   |           eaead17c7dbfcd5d-s.woff2
+|   |           f639721981034f88-s.woff2
+|   |           
+|   \---types
+|       |   cache-life.d.ts
+|       |   package.json
+|       |   routes.d.ts
+|       |   validator.ts
+|       |   
+|       \---app
+|           |   layout.ts
+|           |   page.ts
+|           |   
+|           +---banquets
+|           |       page.ts
+|           |       
+|           +---gallery
+|           |       page.ts
+|           |       
+|           \---memorial
+|                   page.ts
+|                   
++---.vercel
+|       project.json
+|       README.txt
+|       
++---admin
+|   |   .env
+|   |   .htaccess
+|   |   dashboard.php
+|   |   gallery.php
+|   |   login.php
+|   |   logout.php
+|   |   menu.php
+|   |   menu_add.php
+|   |   menu_delete.php
+|   |   menu_edit.php
+|   |   menu_save.php
+|   |   settings.php
+|   |   test.php
+|   |   
+|   +---assets
+|   |   \---css
+|   |       |   admin.css
+|   |       |   
+|   |       \---js
+|   |           \---img
+|   +---auth
+|   |       csrf.php
+|   |       login_check.php
+|   |       session.php
+|   |       
+|   \---includes
+|           auth.php
+|           config.php
+|           functions.php
+|           
++---data
+|   |   gallery.json
+|   |   menu.json
+|   |   settings.json
+|   |   
+|   \---menu
+|           baked-rolls.json
+|           bakery.json
+|           cold-rolls.json
+|           drinks.json
+|           homemade.json
+|           meat.json
+|           salads.json
+|           sets.json
+|           sides.json
+|           soups.json
+|           
++---public
+|   |   apple-icon.png
+|   |   favicon.ico
+|   |   file.svg
+|   |   globe.svg
+|   |   hero-bg.png
+|   |   icon.png
+|   |   logo.png
+|   |   next.svg
+|   |   og-image.png
+|   |   vercel.svg
+|   |   window.svg
+|   |   
+|   +---images
+|   |   |   banquets-hero.jpg
+|   |   |   map-preview.png
+|   |   |   map-preview.webp
+|   |   |   memorial-hero.jpg
+|   |   |   
+|   |   +---gallery
+|   |   |       1.jpg
+|   |   |       10.jpg
+|   |   |       11.jpg
+|   |   |       12.jpg
+|   |   |       13.jpg
+|   |   |       14.jpg
+|   |   |       15.jpg
+|   |   |       16.jpg
+|   |   |       17.jpg
+|   |   |       18.jpg
+|   |   |       19.jpg
+|   |   |       2.jpg
+|   |   |       3.jpg
+|   |   |       4.jpg
+|   |   |       5.jpg
+|   |   |       6.jpg
+|   |   |       7.jpg
+|   |   |       8.jpg
+|   |   |       9.jpg
+|   |   |       
+|   |   \---hero
+|   |           hero-1.jpg
+|   |           hero-2.jpg
+|   |           hero-3.jpg
+|   |           hero-4.jpg
+|   |           
+|   \---uploads
+|       \---menu
+|           |   .gitkeep
+|           |   
+|           \---gallery
+|                   .gitkeep
+|                   
+\---src
+    +---app
+    |   |   favicon.ico
+    |   |   globals.css
+    |   |   layout.tsx
+    |   |   not-found.tsx
+    |   |   page.tsx
+    |   |   robots.ts
+    |   |   sitemap.ts
+    |   |   
+    |   +---banquets
+    |   |       page.tsx
+    |   |       
+    |   +---gallery
+    |   |       page.tsx
+    |   |       
+    |   \---memorial
+    |           page.tsx
+    |           
+    +---components
+    |   |   About.tsx
+    |   |   AnchorScroll.tsx
+    |   |   Contacts.tsx
+    |   |   Footer.tsx
+    |   |   GalleryGrid.tsx
+    |   |   Header.tsx
+    |   |   Hero.tsx
+    |   |   HomeContent.tsx
+    |   |   PageContainer.tsx
+    |   |   PageHero.tsx
+    |   |   RestaurantSchema.tsx
+    |   |   Services.tsx
+    |   |   WelcomeScreen.tsx
+    |   |   
+    |   \---menu
+    |           Menu.tsx
+    |           MenuCard.tsx
+    |           
+    +---config
+    |       brand.ts
+    |       navigation.ts
+    |       site.ts
+    |       
+    +---data
+    |   |   contacts.ts
+    |   |   footer.ts
+    |   |   
+    |   \---menu
+    |           baked-rolls.ts
+    |           bakery.ts
+    |           cold-rolls.ts
+    |           drinks.ts
+    |           homemade.ts
+    |           index.ts
+    |           meat.ts
+    |           salads.ts
+    |           sets.ts
+    |           sides.ts
+    |           soups.ts
+    |           types.ts
+    |           
+    +---hooks
+    |       useWelcome.ts
+    |       
+    +---lib
+    |       api.ts
+    |       supabase.ts
+    |       
+    \---scripts
+            import-menu.ts
+            
