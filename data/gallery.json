@@ -1,3 +1,173 @@
-{
-    "images": []
-}
+[
+    {
+        "id": "GAL001",
+        "src": "/images/gallery/1.jpg",
+        "alt": "Фото кафе «Сытый слонъ»",
+        "visible": true,
+        "sort": 10,
+        "createdAt": "",
+        "updatedAt": ""
+    },
+    {
+        "id": "GAL002",
+        "src": "/images/gallery/2.jpg",
+        "alt": "Фото кафе «Сытый слонъ»",
+        "visible": true,
+        "sort": 20,
+        "createdAt": "",
+        "updatedAt": ""
+    },
+    {
+        "id": "GAL003",
+        "src": "/images/gallery/3.jpg",
+        "alt": "Фото кафе «Сытый слонъ»",
+        "visible": true,
+        "sort": 30,
+        "createdAt": "",
+        "updatedAt": ""
+    },
+    {
+        "id": "GAL004",
+        "src": "/images/gallery/4.jpg",
+        "alt": "Фото кафе «Сытый слонъ»",
+        "visible": true,
+        "sort": 40,
+        "createdAt": "",
+        "updatedAt": ""
+    },
+    {
+        "id": "GAL005",
+        "src": "/images/gallery/5.jpg",
+        "alt": "Фото кафе «Сытый слонъ»",
+        "visible": true,
+        "sort": 50,
+        "createdAt": "",
+        "updatedAt": ""
+    },
+    {
+        "id": "GAL006",
+        "src": "/images/gallery/6.jpg",
+        "alt": "Фото кафе «Сытый слонъ»",
+        "visible": true,
+        "sort": 60,
+        "createdAt": "",
+        "updatedAt": ""
+    },
+    {
+        "id": "GAL007",
+        "src": "/images/gallery/7.jpg",
+        "alt": "Фото кафе «Сытый слонъ»",
+        "visible": true,
+        "sort": 70,
+        "createdAt": "",
+        "updatedAt": ""
+    },
+    {
+        "id": "GAL008",
+        "src": "/images/gallery/8.jpg",
+        "alt": "Фото кафе «Сытый слонъ»",
+        "visible": true,
+        "sort": 80,
+        "createdAt": "",
+        "updatedAt": ""
+    },
+    {
+        "id": "GAL009",
+        "src": "/images/gallery/9.jpg",
+        "alt": "Фото кафе «Сытый слонъ»",
+        "visible": true,
+        "sort": 90,
+        "createdAt": "",
+        "updatedAt": ""
+    },
+    {
+        "id": "GAL010",
+        "src": "/images/gallery/10.jpg",
+        "alt": "Фото кафе «Сытый слонъ»",
+        "visible": true,
+        "sort": 100,
+        "createdAt": "",
+        "updatedAt": ""
+    },
+    {
+        "id": "GAL011",
+        "src": "/images/gallery/11.jpg",
+        "alt": "Фото кафе «Сытый слонъ»",
+        "visible": true,
+        "sort": 110,
+        "createdAt": "",
+        "updatedAt": ""
+    },
+    {
+        "id": "GAL012",
+        "src": "/images/gallery/12.jpg",
+        "alt": "Фото кафе «Сытый слонъ»",
+        "visible": true,
+        "sort": 120,
+        "createdAt": "",
+        "updatedAt": ""
+    },
+    {
+        "id": "GAL013",
+        "src": "/images/gallery/13.jpg",
+        "alt": "Фото кафе «Сытый слонъ»",
+        "visible": true,
+        "sort": 130,
+        "createdAt": "",
+        "updatedAt": ""
+    },
+    {
+        "id": "GAL014",
+        "src": "/images/gallery/14.jpg",
+        "alt": "Фото кафе «Сытый слонъ»",
+        "visible": true,
+        "sort": 140,
+        "createdAt": "",
+        "updatedAt": ""
+    },
+    {
+        "id": "GAL015",
+        "src": "/images/gallery/15.jpg",
+        "alt": "Фото кафе «Сытый слонъ»",
+        "visible": true,
+        "sort": 150,
+        "createdAt": "",
+        "updatedAt": ""
+    },
+    {
+        "id": "GAL016",
+        "src": "/images/gallery/16.jpg",
+        "alt": "Фото кафе «Сытый слонъ»",
+        "visible": true,
+        "sort": 160,
+        "createdAt": "",
+        "updatedAt": ""
+    },
+    {
+        "id": "GAL017",
+        "src": "/images/gallery/17.jpg",
+        "alt": "Фото кафе «Сытый слонъ»",
+        "visible": true,
+        "sort": 170,
+        "createdAt": "",
+        "updatedAt": ""
+    },
+    {
+        "id": "GAL018",
+        "src": "/images/gallery/18.jpg",
+        "alt": "Фото кафе «Сытый слонъ»",
+        "visible": true,
+        "sort": 180,
+        "createdAt": "",
+        "updatedAt": ""
+    },
+    {
+        "id": "GAL019",
+        "src": "/images/gallery/19.jpg",
+        "alt": "Фото кафе «Сытый слонъ»",
+        "visible": true,
+        "sort": 190,
+        "createdAt": "",
+        "updatedAt": ""
+    }
+]

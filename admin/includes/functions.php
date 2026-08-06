@@ -49,54 +49,32 @@ function isLogged(): bool
 function getMenuCategories(): array
 {
     return [
-
         'salads' => 'Салаты',
-
         'soups' => 'Первые блюда',
-
         'meat' => 'Горячие блюда',
-
         'homemade' => 'Домашние блюда',
-
         'bakery' => 'Выпечка',
-
         'drinks' => 'Напитки',
-
         'cold-rolls' => 'Холодные роллы',
-
         'baked-rolls' => 'Запечённые роллы',
-
         'sides' => 'Гарниры',
-
-        'sets' => 'Сеты'
-
+        'sets' => 'Сеты',
     ];
 }
 
 function generateSku(string $category, array $items): string
 {
     $prefixes = [
-
         'salads' => 'SAL',
-
         'soups' => 'SUP',
-
         'meat' => 'HOT',
-
         'homemade' => 'HOM',
-
         'bakery' => 'BAK',
-
         'drinks' => 'DRI',
-
         'cold-rolls' => 'CRL',
-
         'baked-rolls' => 'BRL',
-
         'sides' => 'SID',
-
-        'sets' => 'SET'
-
+        'sets' => 'SET',
     ];
 
     $prefix = $prefixes[$category] ?? 'UNK';
@@ -104,21 +82,19 @@ function generateSku(string $category, array $items): string
     $max = 0;
 
     foreach ($items as $item) {
-
         if (!isset($item['id'])) {
             continue;
         }
 
-        if (!preg_match('/^'.$prefix.'(\d+)$/', $item['id'], $m)) {
+        if (!preg_match('/^' . preg_quote($prefix, '/') . '(\d+)$/', (string)$item['id'], $matches)) {
             continue;
         }
 
-        $number = (int)$m[1];
+        $number = (int)$matches[1];
 
         if ($number > $max) {
             $max = $number;
         }
-
     }
 
     return sprintf('%s%03d', $prefix, $max + 1);
@@ -128,48 +104,167 @@ function uploadImage(array $file, string $folder): string
 {
     if (
         empty($file) ||
+        !isset($file['error']) ||
         $file['error'] !== UPLOAD_ERR_OK
     ) {
         return '';
     }
 
-    $allowed = [
-
-        'jpg',
-
-        'jpeg',
-
-        'png',
-
-        'webp'
-
-    ];
-
-    $ext = strtolower(
-        pathinfo(
-            $file['name'],
-            PATHINFO_EXTENSION
-        )
-    );
-
-    if (!in_array($ext, $allowed, true)) {
+    if (
+        empty($file['tmp_name']) ||
+        !is_uploaded_file($file['tmp_name'])
+    ) {
         return '';
     }
 
-    $filename = bin2hex(random_bytes(16)).'.'.$ext;
-
-    $dir = dirname(__DIR__).'/../uploads/'.$folder;
-
-    if (!is_dir($dir)) {
-        mkdir($dir, 0755, true);
+    if (
+        isset($file['size']) &&
+        (int)$file['size'] > 15 * 1024 * 1024
+    ) {
+        return '';
     }
 
-    move_uploaded_file(
+    $imageInfo = @getimagesize($file['tmp_name']);
+
+    if ($imageInfo === false) {
+        return '';
+    }
+
+    [$sourceWidth, $sourceHeight, $imageType] = $imageInfo;
+
+    if ($sourceWidth < 1 || $sourceHeight < 1) {
+        return '';
+    }
+
+    $sourceImage = createImageResource(
         $file['tmp_name'],
-        $dir.'/'.$filename
+        $imageType
     );
 
-    return '/uploads/'.$folder.'/'.$filename;
+    if ($sourceImage === null) {
+        return '';
+    }
+
+    $maxWidth = $folder === 'gallery' ? 1920 : 1200;
+    $maxHeight = $folder === 'gallery' ? 1440 : 900;
+
+    [$targetWidth, $targetHeight] = calculateImageSize(
+        $sourceWidth,
+        $sourceHeight,
+        $maxWidth,
+        $maxHeight
+    );
+
+    $targetImage = imagecreatetruecolor(
+        $targetWidth,
+        $targetHeight
+    );
+
+    if ($targetImage === false) {
+        imagedestroy($sourceImage);
+        return '';
+    }
+
+    imagealphablending($targetImage, true);
+    imagesavealpha($targetImage, true);
+
+    $background = imagecolorallocate(
+        $targetImage,
+        255,
+        255,
+        255
+    );
+
+    imagefill($targetImage, 0, 0, $background);
+
+    $resized = imagecopyresampled(
+        $targetImage,
+        $sourceImage,
+        0,
+        0,
+        0,
+        0,
+        $targetWidth,
+        $targetHeight,
+        $sourceWidth,
+        $sourceHeight
+    );
+
+    imagedestroy($sourceImage);
+
+    if (!$resized) {
+        imagedestroy($targetImage);
+        return '';
+    }
+
+    $directory = dirname(__DIR__, 2)
+        . '/uploads/'
+        . trim($folder, '/');
+
+    if (
+        !is_dir($directory) &&
+        !mkdir($directory, 0755, true) &&
+        !is_dir($directory)
+    ) {
+        imagedestroy($targetImage);
+        return '';
+    }
+
+    $filename = bin2hex(random_bytes(16)) . '.webp';
+    $destination = $directory . '/' . $filename;
+
+    $saved = imagewebp(
+        $targetImage,
+        $destination,
+        78
+    );
+
+    imagedestroy($targetImage);
+
+    if (!$saved || !file_exists($destination)) {
+        return '';
+    }
+
+    return '/uploads/'
+        . trim($folder, '/')
+        . '/'
+        . $filename;
+}
+
+function createImageResource(
+    string $file,
+    int $imageType
+): GdImage|null {
+    return match ($imageType) {
+        IMAGETYPE_JPEG => @imagecreatefromjpeg($file),
+        IMAGETYPE_PNG => @imagecreatefrompng($file),
+        IMAGETYPE_WEBP => @imagecreatefromwebp($file),
+        default => null,
+    };
+}
+
+function calculateImageSize(
+    int $sourceWidth,
+    int $sourceHeight,
+    int $maxWidth,
+    int $maxHeight
+): array {
+    if (
+        $sourceWidth <= $maxWidth &&
+        $sourceHeight <= $maxHeight
+    ) {
+        return [$sourceWidth, $sourceHeight];
+    }
+
+    $ratio = min(
+        $maxWidth / $sourceWidth,
+        $maxHeight / $sourceHeight
+    );
+
+    return [
+        max(1, (int)round($sourceWidth * $ratio)),
+        max(1, (int)round($sourceHeight * $ratio)),
+    ];
 }
 
 function deleteImage(string $path): void
@@ -178,9 +273,16 @@ function deleteImage(string $path): void
         return;
     }
 
-    $file = dirname(__DIR__).'/..'.$path;
+    if (
+        !str_starts_with($path, '/uploads/menu/') &&
+        !str_starts_with($path, '/uploads/gallery/')
+    ) {
+        return;
+    }
 
-    if (file_exists($file)) {
+    $file = dirname(__DIR__, 2) . $path;
+
+    if (is_file($file)) {
         unlink($file);
     }
 }
