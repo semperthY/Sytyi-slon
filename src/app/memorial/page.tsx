@@ -1,7 +1,6 @@
 import PageHero from "@/components/PageHero";
-import Link from "next/link";
+import ContactCallout from "@/components/ContactCallout";
 import {
-  Phone,
   UtensilsCrossed,
   HandHeart,
   CalendarDays,
@@ -16,12 +15,16 @@ export const metadata = {
 
 const features = [
   {
-    icon: <HeartHandshake className="h-8 w-8 text-amber-500" />,
+    icon: (
+      <HeartHandshake className="h-8 w-8 text-amber-500" />
+    ),
     title: "Готовые меню",
     text: "Два готовых варианта стоимостью 1500 ₽ и 2000 ₽ на человека.",
   },
   {
-    icon: <UtensilsCrossed className="h-8 w-8 text-amber-500" />,
+    icon: (
+      <UtensilsCrossed className="h-8 w-8 text-amber-500" />
+    ),
     title: "Домашняя кухня",
     text: "Традиционные блюда из свежих и качественных продуктов.",
   },
@@ -31,7 +34,9 @@ const features = [
     text: "Спокойная атмосфера, внимательный и деликатный персонал.",
   },
   {
-    icon: <CalendarDays className="h-8 w-8 text-amber-500" />,
+    icon: (
+      <CalendarDays className="h-8 w-8 text-amber-500" />
+    ),
     title: "Подготовим всё заранее",
     text: "К вашему приезду зал и стол будут полностью готовы.",
   },
@@ -83,112 +88,97 @@ export default function MemorialPage() {
 
           <p className="mb-8 text-neutral-400">
             Мы предлагаем два готовых варианта поминального меню.
-            При необходимости состав блюд можно обсудить индивидуально.
+            При необходимости состав блюд можно обсудить
+            индивидуально.
           </p>
 
           <div className="grid gap-8 lg:grid-cols-2">
-
             <div className="overflow-hidden rounded-2xl border border-neutral-800 bg-neutral-950 transition-all duration-300 hover:-translate-y-1 hover:border-amber-600">
-
               <div className="border-b border-neutral-800 p-6">
                 <div className="inline-flex rounded-full bg-amber-600 px-4 py-2 text-lg font-bold text-white">
                   Меню 1500 ₽
                 </div>
 
                 <p className="mt-4 text-neutral-400">
-                  Полный комплекс блюд для проведения поминального обеда.
+                  Полный комплекс блюд для проведения поминального
+                  обеда.
                 </p>
               </div>
 
               <div className="p-6">
                 <ul className="divide-y divide-neutral-800 text-neutral-300">
-
                   <li className="py-3">Салат «Витаминный»</li>
                   <li className="py-3">Салат «Оливье»</li>
-                  <li className="py-3">Сельдь в горчичном соусе</li>
+                  <li className="py-3">
+                    Сельдь в горчичном соусе
+                  </li>
                   <li className="py-3">Мясное ассорти</li>
                   <li className="py-3">Бризоль куриная</li>
                   <li className="py-3">Рыба в кляре</li>
-                  <li className="py-3">Картофель тушёный с мясом</li>
-                  <li className="py-3">Пироги в ассортименте</li>
-                  <li className="py-3">Морс в ассортименте</li>
-                  <li className="py-3">Чай (чёрный / зелёный)</li>
+                  <li className="py-3">
+                    Картофель тушёный с мясом
+                  </li>
+                  <li className="py-3">
+                    Пироги в ассортименте
+                  </li>
+                  <li className="py-3">
+                    Морс в ассортименте
+                  </li>
+                  <li className="py-3">
+                    Чай (чёрный / зелёный)
+                  </li>
                   <li className="py-3">Хлеб</li>
                 </ul>
               </div>
             </div>
-            <div className="overflow-hidden rounded-2xl border border-neutral-800 bg-neutral-950 transition-all duration-300 hover:-translate-y-1 hover:border-amber-600">
 
+            <div className="overflow-hidden rounded-2xl border border-neutral-800 bg-neutral-950 transition-all duration-300 hover:-translate-y-1 hover:border-amber-600">
               <div className="border-b border-neutral-800 p-6">
                 <div className="inline-flex rounded-full bg-amber-600 px-4 py-2 text-lg font-bold text-white">
                   Меню 2000 ₽
                 </div>
 
                 <p className="mt-4 text-neutral-400">
-                  Расширенный вариант меню с дополнительными блюдами и закусками.
+                  Расширенный вариант меню с дополнительными
+                  блюдами и закусками.
                 </p>
               </div>
 
               <div className="p-6">
                 <ul className="divide-y divide-neutral-800 text-neutral-300">
-
                   <li className="py-3">Лапша куриная / Щи</li>
                   <li className="py-3">Салат «Нежный»</li>
                   <li className="py-3">Овощная тарелка</li>
                   <li className="py-3">Мясное ассорти</li>
                   <li className="py-3">Фруктовая тарелка</li>
-                  <li className="py-3">Бутерброды с сёмгой</li>
+                  <li className="py-3">
+                    Бутерброды с сёмгой
+                  </li>
                   <li className="py-3">Голубцы мясные</li>
                   <li className="py-3">Рыба под шубой</li>
-                  <li className="py-3">Картофель тушёный с мясом</li>
-                  <li className="py-3">Пироги в ассортименте</li>
-                  <li className="py-3">Морс в ассортименте</li>
-                  <li className="py-3">Чай (чёрный / зелёный)</li>
+                  <li className="py-3">
+                    Картофель тушёный с мясом
+                  </li>
+                  <li className="py-3">
+                    Пироги в ассортименте
+                  </li>
+                  <li className="py-3">
+                    Морс в ассортименте
+                  </li>
+                  <li className="py-3">
+                    Чай (чёрный / зелёный)
+                  </li>
                   <li className="py-3">Хлеб</li>
-
                 </ul>
               </div>
-
-            </div>
-
-          </div>
-        </section>
-
-        <section className="rounded-2xl border border-amber-600/30 bg-neutral-900 p-10 text-center">
-          <h2 className="mb-4 text-3xl font-bold text-white">
-            Свяжитесь с нами
-          </h2>
-
-          <p className="mx-auto mb-10 max-w-2xl text-lg leading-8 text-neutral-400">
-            Поможем выбрать подходящее меню, согласуем дату проведения
-            и ответим на все ваши вопросы.
-          </p>
-
-          <div className="flex flex-col items-center justify-center gap-8 md:flex-row">
-            <Link
-              href="tel:+79010552424"
-              className="inline-flex items-center gap-3 rounded-xl bg-amber-600 px-8 py-4 font-semibold text-white transition hover:bg-amber-700"
-            >
-              <Phone size={22} />
-              Позвонить
-            </Link>
-
-            <div className="hidden h-20 w-px bg-neutral-700 md:block" />
-
-            <div className="text-center md:text-left">
-              <a
-                href="tel:+79010552424"
-                className="text-3xl font-bold text-white transition hover:text-amber-500"
-              >
-                +7 (901) 055-24-24
-              </a>
-
-              <p className="mt-2 text-neutral-400">
-                Ежедневно с 08:00 до 20:00
-              </p>
             </div>
           </div>
         </section>
+
+        <ContactCallout
+          title="Свяжитесь с нами"
+          description="Поможем выбрать подходящее меню, согласуем дату проведения и ответим на все ваши вопросы."
+        />
       </main>
     </div>
   );

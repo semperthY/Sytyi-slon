@@ -1,11 +1,24 @@
 {
     "restaurantName": "Сытый слонъ",
-    "phones": [],
+    "phones": [
+        {
+            "title": "Администратор",
+            "number": "+7 (901) 055-24-24"
+        },
+        {
+            "title": "Михаил",
+            "number": "+7 (901) 274-30-30"
+        },
+        {
+            "title": "Михаил",
+            "number": "+7 (906) 634-76-56"
+        }
+    ],
     "email": "",
-    "address": "",
-    "workingHours": "",
+    "address": "рп. Некрасовское, Курортный переулок, д. 1",
+    "workingHours": "08:00 - 20:00",
     "maps": {
-        "yandex": "",
+        "yandex": "https://yandex.ru/maps/10841/yaroslavl-oblast/house/kurortny_pereulok_1/YEkYdQFmSEQFQFttfXp2dH5gYA==/?ll=40.365684%2C57.674388&z=16",
         "gis2": ""
     }
 }
