@@ -1,0 +1,50 @@
+[
+  {
+    "slug": "spicy-chicken-onigiri",
+    "name": "Пикантная курица",
+    "description": "Курица, японский майонез, салат айсберг, рис, нори",
+    "value": "",
+    "price": 200,
+    "image": "",
+    "visible": true,
+    "available": true,
+    "popular": false,
+    "deleted": false,
+    "sort": 1,
+    "createdAt": "2026-08-18T16:31:00+00:00",
+    "updatedAt": "2026-08-18T16:31:00+00:00",
+    "id": "ONI001"
+  },
+  {
+    "slug": "bold-shrimp-onigiri",
+    "name": "Дерзкая креветка",
+    "description": "Креветка, соус спайси, огурец, икра масаго, рис, нори",
+    "value": "",
+    "price": 250,
+    "image": "",
+    "visible": true,
+    "available": true,
+    "popular": false,
+    "deleted": false,
+    "sort": 2,
+    "createdAt": "2026-08-18T16:31:00+00:00",
+    "updatedAt": "2026-08-18T16:31:00+00:00",
+    "id": "ONI002"
+  },
+  {
+    "slug": "restless-salmon-onigiri",
+    "name": "Неугомонный лосось",
+    "description": "Лосось, творожный сыр, огурец, рис, нори",
+    "value": "",
+    "price": 300,
+    "image": "",
+    "visible": true,
+    "available": true,
+    "popular": false,
+    "deleted": false,
+    "sort": 3,
+    "createdAt": "2026-08-18T16:31:00+00:00",
+    "updatedAt": "2026-08-18T16:31:00+00:00",
+    "id": "ONI003"
+  }
+]
