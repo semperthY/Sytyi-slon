@@ -5,16 +5,18 @@ type Props = {
 };
 
 export default function MenuCard({ item }: Props) {
-  const value = item.value || item.weight || "";
+  const value =
+    item.value || item.weight || (item.pieces ? `${item.pieces} шт.` : "");
   const hasImage = Boolean(item.image?.trim());
   const isAvailable = item.available !== false;
 
   return (
     <article
-      className={`group overflow-hidden rounded-2xl border bg-zinc-900 transition-all duration-300 ${isAvailable
+      className={`group overflow-hidden rounded-2xl border bg-zinc-900 transition-all duration-300 ${
+        isAvailable
           ? "border-yellow-500/20 hover:-translate-y-1 hover:border-yellow-500 hover:shadow-xl hover:shadow-yellow-500/10"
           : "border-zinc-700 opacity-70"
-        }`}
+      }`}
     >
       {hasImage && (
         <div className="aspect-[4/3] overflow-hidden bg-zinc-800">
@@ -38,16 +40,10 @@ export default function MenuCard({ item }: Props) {
           </span>
         </div>
 
-        {value && (
-          <p className="text-sm text-zinc-400">
-            {value}
-          </p>
-        )}
+        {value && <p className="text-sm text-zinc-400">{value}</p>}
 
         {item.description?.trim() && (
-          <p className="text-sm leading-6 text-zinc-300">
-            {item.description}
-          </p>
+          <p className="text-sm leading-6 text-zinc-300">{item.description}</p>
         )}
 
         {!isAvailable && (
