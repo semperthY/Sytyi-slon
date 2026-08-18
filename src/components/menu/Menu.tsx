@@ -21,10 +21,34 @@ const categories = [
   { slug: "sets", title: "Сеты" },
 ];
 
+type MenuImageMap = Record<string, Record<string, string>>;
+
 function prepareItems(items: MenuItem[]): MenuItem[] {
   return items
     .filter((item) => item.deleted !== true && item.visible !== false)
     .sort((first, second) => (first.sort ?? 0) - (second.sort ?? 0));
+}
+
+function applyProtectedImages(
+  slug: string,
+  items: MenuItem[],
+  imageMap: MenuImageMap,
+): MenuItem[] {
+  const categoryMap = imageMap[slug] ?? {};
+
+  return items.map((item) => {
+    const id = item.id ? String(item.id) : "";
+    const protectedImage = id ? categoryMap[id] : "";
+
+    if (!protectedImage) {
+      return item;
+    }
+
+    return {
+      ...item,
+      image: protectedImage,
+    };
+  });
 }
 
 export default function Menu() {
@@ -36,10 +60,36 @@ export default function Menu() {
   useEffect(() => {
     let cancelled = false;
 
+    async function loadImageMap(timestamp: number): Promise<MenuImageMap> {
+      try {
+        const response = await fetch(
+          `/uploads/menu/image-map.json?v=${timestamp}`,
+          {
+            cache: "no-store",
+          },
+        );
+
+        if (!response.ok) {
+          return {};
+        }
+
+        const data: unknown = await response.json();
+
+        if (!data || typeof data !== "object" || Array.isArray(data)) {
+          return {};
+        }
+
+        return data as MenuImageMap;
+      } catch {
+        return {};
+      }
+    }
+
     async function loadCategory(
       slug: string,
       title: string,
       timestamp: number,
+      imageMap: MenuImageMap,
     ): Promise<MenuCategory> {
       const response = await fetch(`/data/menu/${slug}.json?v=${timestamp}`, {
         cache: "no-store",
@@ -55,10 +105,12 @@ export default function Menu() {
         throw new Error(`Некорректный формат категории ${slug}`);
       }
 
+      const items = applyProtectedImages(slug, data as MenuItem[], imageMap);
+
       return {
         slug,
         title,
-        items: prepareItems(data as MenuItem[]),
+        items: prepareItems(items),
       };
     }
 
@@ -67,9 +119,16 @@ export default function Menu() {
       setError("");
 
       const timestamp = Date.now();
+      const imageMap = await loadImageMap(timestamp);
+
       const results = await Promise.allSettled(
         categories.map((category) =>
-          loadCategory(category.slug, category.title, timestamp),
+          loadCategory(
+            category.slug,
+            category.title,
+            timestamp,
+            imageMap,
+          ),
         ),
       );
 
