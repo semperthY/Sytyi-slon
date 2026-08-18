@@ -1,11 +1,25 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 
-import { menu as menuData } from "@/data/menu";
 import type { MenuCategory, MenuItem } from "@/data/menu";
 
 import MenuCard from "./MenuCard";
+
+const categories = [
+  { slug: "salads", title: "Салаты" },
+  { slug: "sides", title: "Гарниры" },
+  { slug: "soups", title: "Первые блюда" },
+  { slug: "meat", title: "Горячие блюда" },
+  { slug: "homemade", title: "Домашние блюда" },
+  { slug: "bakery", title: "Выпечка" },
+  { slug: "drinks", title: "Напитки" },
+  { slug: "cold-rolls", title: "Холодные роллы" },
+  { slug: "baked-rolls", title: "Запечённые роллы" },
+  { slug: "fried-rolls", title: "Жареные роллы" },
+  { slug: "onigiri", title: "Онигири" },
+  { slug: "sets", title: "Сеты" },
+];
 
 function prepareItems(items: MenuItem[]): MenuItem[] {
   return items
@@ -14,18 +28,104 @@ function prepareItems(items: MenuItem[]): MenuItem[] {
 }
 
 export default function Menu() {
+  const [menu, setMenu] = useState<MenuCategory[]>([]);
   const [opened, setOpened] = useState("");
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState("");
 
-  const menu = useMemo<MenuCategory[]>(
-    () =>
-      menuData
-        .map((category) => ({
-          ...category,
-          items: prepareItems(category.items),
-        }))
-        .filter((category) => category.items.length > 0),
-    [],
-  );
+  useEffect(() => {
+    let cancelled = false;
+
+    async function loadCategory(
+      slug: string,
+      title: string,
+      timestamp: number,
+    ): Promise<MenuCategory> {
+      const response = await fetch(`/data/menu/${slug}.json?v=${timestamp}`, {
+        cache: "no-store",
+      });
+
+      if (!response.ok) {
+        throw new Error(`Не удалось загрузить категорию ${slug}`);
+      }
+
+      const data: unknown = await response.json();
+
+      if (!Array.isArray(data)) {
+        throw new Error(`Некорректный формат категории ${slug}`);
+      }
+
+      return {
+        slug,
+        title,
+        items: prepareItems(data as MenuItem[]),
+      };
+    }
+
+    async function loadMenu() {
+      setLoading(true);
+      setError("");
+
+      const timestamp = Date.now();
+      const results = await Promise.allSettled(
+        categories.map((category) =>
+          loadCategory(category.slug, category.title, timestamp),
+        ),
+      );
+
+      if (cancelled) {
+        return;
+      }
+
+      const loadedMenu: MenuCategory[] = [];
+
+      for (const result of results) {
+        if (
+          result.status === "fulfilled" &&
+          result.value.items.length > 0
+        ) {
+          loadedMenu.push(result.value);
+        }
+      }
+
+      setMenu(loadedMenu);
+      setOpened("");
+
+      if (loadedMenu.length === 0) {
+        setError("Не удалось загрузить меню.");
+      }
+
+      setLoading(false);
+    }
+
+    void loadMenu();
+
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+
+  if (loading) {
+    return (
+      <section className="min-h-[60vh] bg-neutral-950 px-6 py-20 text-white">
+        <div className="mx-auto max-w-6xl text-center">
+          <div className="mx-auto h-10 w-10 animate-spin rounded-full border-4 border-yellow-500/30 border-t-yellow-500" />
+          <p className="mt-5 text-zinc-400">Загружаем меню...</p>
+        </div>
+      </section>
+    );
+  }
+
+  if (error) {
+    return (
+      <section className="min-h-[60vh] bg-neutral-950 px-6 py-20 text-white">
+        <div className="mx-auto max-w-3xl rounded-2xl border border-red-500/20 bg-zinc-900 p-8 text-center">
+          <h2 className="text-2xl font-bold">Меню временно недоступно</h2>
+          <p className="mt-3 text-zinc-400">Обновите страницу немного позже.</p>
+        </div>
+      </section>
+    );
+  }
 
   return (
     <section className="bg-neutral-950 px-4 py-12 text-white sm:px-6 sm:py-20">
@@ -62,7 +162,6 @@ export default function Menu() {
                     <span className="block text-xl font-bold text-yellow-400 sm:text-2xl">
                       {category.title}
                     </span>
-
                     <span className="mt-1 block text-sm text-zinc-500">
                       {category.items.length} позиций
                     </span>
