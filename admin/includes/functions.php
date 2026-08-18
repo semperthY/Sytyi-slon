@@ -2,9 +2,16 @@
 
 declare(strict_types=1);
 
-function readJson(string $file): array
+function menuImageMapFile(): string
 {
-    if (!file_exists($file)) {
+    return dirname(__DIR__, 2) . '/uploads/menu/image-map.json';
+}
+
+function readMenuImageMap(): array
+{
+    $file = menuImageMapFile();
+
+    if (!is_file($file)) {
         return [];
     }
 
@@ -19,8 +26,194 @@ function readJson(string $file): array
     return is_array($data) ? $data : [];
 }
 
+function writeMenuImageMap(array $map): bool
+{
+    $file = menuImageMapFile();
+    $directory = dirname($file);
+
+    if (
+        !is_dir($directory) &&
+        !mkdir($directory, 0755, true) &&
+        !is_dir($directory)
+    ) {
+        return false;
+    }
+
+    $json = json_encode(
+        $map,
+        JSON_PRETTY_PRINT |
+        JSON_UNESCAPED_UNICODE |
+        JSON_UNESCAPED_SLASHES
+    );
+
+    if ($json === false) {
+        return false;
+    }
+
+    return file_put_contents($file, $json, LOCK_EX) !== false;
+}
+
+function menuCategoryFromFile(string $file): string
+{
+    if (!defined('MENU_PATH')) {
+        return '';
+    }
+
+    $menuPath = rtrim((string)MENU_PATH, '/\\');
+    $directory = rtrim(dirname($file), '/\\');
+
+    if ($directory !== $menuPath) {
+        return '';
+    }
+
+    return pathinfo($file, PATHINFO_FILENAME);
+}
+
+function applyProtectedMenuImages(string $category, array $items): array
+{
+    if ($category === '') {
+        return $items;
+    }
+
+    $map = readMenuImageMap();
+    $categoryMap = $map[$category] ?? [];
+
+    if (!is_array($categoryMap)) {
+        return $items;
+    }
+
+    foreach ($items as &$item) {
+        if (!is_array($item)) {
+            continue;
+        }
+
+        $id = (string)($item['id'] ?? '');
+
+        if ($id === '') {
+            continue;
+        }
+
+        $protectedImage = (string)($categoryMap[$id] ?? '');
+
+        if ($protectedImage !== '') {
+            $item['image'] = $protectedImage;
+        }
+    }
+
+    unset($item);
+
+    return $items;
+}
+
+function syncProtectedMenuImages(string $category, array $items): void
+{
+    if ($category === '') {
+        return;
+    }
+
+    $map = readMenuImageMap();
+
+    if (!isset($map[$category]) || !is_array($map[$category])) {
+        $map[$category] = [];
+    }
+
+    $changed = false;
+
+    foreach ($items as $item) {
+        if (!is_array($item)) {
+            continue;
+        }
+
+        $id = (string)($item['id'] ?? '');
+        $image = (string)($item['image'] ?? '');
+
+        if (
+            $id === '' ||
+            $image === '' ||
+            !str_starts_with($image, '/uploads/menu/')
+        ) {
+            continue;
+        }
+
+        if (($map[$category][$id] ?? '') !== $image) {
+            $map[$category][$id] = $image;
+            $changed = true;
+        }
+    }
+
+    if ($changed) {
+        writeMenuImageMap($map);
+    }
+}
+
+function removeProtectedMenuImageByPath(string $path): void
+{
+    if ($path === '' || !str_starts_with($path, '/uploads/menu/')) {
+        return;
+    }
+
+    $map = readMenuImageMap();
+    $changed = false;
+
+    foreach ($map as $category => $categoryMap) {
+        if (!is_array($categoryMap)) {
+            continue;
+        }
+
+        foreach ($categoryMap as $id => $image) {
+            if ((string)$image !== $path) {
+                continue;
+            }
+
+            unset($map[$category][$id]);
+            $changed = true;
+        }
+
+        if ($map[$category] === []) {
+            unset($map[$category]);
+        }
+    }
+
+    if ($changed) {
+        writeMenuImageMap($map);
+    }
+}
+
+function readJson(string $file): array
+{
+    if (!file_exists($file)) {
+        return [];
+    }
+
+    $json = file_get_contents($file);
+
+    if ($json === false || trim($json) === '') {
+        return [];
+    }
+
+    $data = json_decode($json, true);
+
+    if (!is_array($data)) {
+        return [];
+    }
+
+    $category = menuCategoryFromFile($file);
+
+    if ($category !== '') {
+        $data = applyProtectedMenuImages($category, $data);
+    }
+
+    return $data;
+}
+
 function writeJson(string $file, array $data): bool
 {
+    $category = menuCategoryFromFile($file);
+
+    if ($category !== '') {
+        syncProtectedMenuImages($category, $data);
+    }
+
     $json = json_encode(
         $data,
         JSON_PRETTY_PRINT |
@@ -90,7 +283,7 @@ function generateSku(string $category, array $items): string
             continue;
         }
 
-        if (!preg_match('/^' . preg_quote($prefix, '/') . '(\d+)$/', (string)$item['id'], $matches)) {
+        if (!preg_match('/^' . preg_quote($prefix, '/') . '(\\d+)$/', (string)$item['id'], $matches)) {
             continue;
         }
 
@@ -282,6 +475,10 @@ function deleteImage(string $path): void
         !str_starts_with($path, '/uploads/gallery/')
     ) {
         return;
+    }
+
+    if (str_starts_with($path, '/uploads/menu/')) {
+        removeProtectedMenuImageByPath($path);
     }
 
     $file = dirname(__DIR__, 2) . $path;
