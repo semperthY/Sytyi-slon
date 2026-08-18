@@ -16,6 +16,8 @@ const categories = [
   { slug: "drinks", title: "Напитки" },
   { slug: "cold-rolls", title: "Холодные роллы" },
   { slug: "baked-rolls", title: "Запечённые роллы" },
+  { slug: "fried-rolls", title: "Жареные роллы" },
+  { slug: "onigiri", title: "Онигири" },
   { slug: "sets", title: "Сеты" },
 ];
 
