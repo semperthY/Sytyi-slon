@@ -9,6 +9,8 @@ import { bakery } from "./bakery";
 import { drinks } from "./drinks";
 import { coldRolls } from "./cold-rolls";
 import { bakedRolls } from "./baked-rolls";
+import { friedRolls } from "./fried-rolls";
+import { onigiri } from "./onigiri";
 import { sets } from "./sets";
 
 export const menu: MenuCategory[] = [
@@ -49,6 +51,14 @@ export const menu: MenuCategory[] = [
         items: bakedRolls,
     },
     {
+        title: "Жареные роллы",
+        items: friedRolls,
+    },
+    {
+        title: "Онигири",
+        items: onigiri,
+    },
+    {
         title: "Сеты",
         items: sets,
     },
@@ -64,4 +74,6 @@ export * from "./bakery";
 export * from "./drinks";
 export * from "./cold-rolls";
 export * from "./baked-rolls";
+export * from "./fried-rolls";
+export * from "./onigiri";
 export * from "./sets";
