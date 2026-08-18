@@ -57,6 +57,8 @@ function getMenuCategories(): array
         'drinks' => 'Напитки',
         'cold-rolls' => 'Холодные роллы',
         'baked-rolls' => 'Запечённые роллы',
+        'fried-rolls' => 'Жареные роллы',
+        'onigiri' => 'Онигири',
         'sides' => 'Гарниры',
         'sets' => 'Сеты',
     ];
@@ -73,6 +75,8 @@ function generateSku(string $category, array $items): string
         'drinks' => 'DRI',
         'cold-rolls' => 'CRL',
         'baked-rolls' => 'BRL',
+        'fried-rolls' => 'FRL',
+        'onigiri' => 'ONI',
         'sides' => 'SID',
         'sets' => 'SET',
     ];
