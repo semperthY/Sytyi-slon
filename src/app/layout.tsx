@@ -1,3 +1,4 @@
+import HolidayDecor from "@/components/HolidayDecor";
 import type { Metadata } from "next";
 import {
   Geist,
@@ -115,6 +116,7 @@ export default function RootLayout({
     >
       <body className="min-h-full flex flex-col bg-neutral-950">
         <Header />
+        {process.env.SITE_EDITION === "holiday" && <HolidayDecor />}
 
         <main className="flex-1">{children}</main>
 

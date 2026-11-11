@@ -10,10 +10,14 @@ ROOT_FILES = {
     "apple-icon.png", "favicon.ico", "hero-bg.png", "icon.png", "logo.png",
     "og-image.png", "file.svg", "globe.svg", "next.svg", "vercel.svg", "window.svg",
 }
-ROUTES = {"404", "_not-found", "banquets", "gallery", "memorial", "menu"}
+ROUTES = {"404", "_not-found", "banquets", "gallery", "memorial", "menu", "new-year-menu"}
 DESIGN_FILES = {
     "images/banquets-hero.jpg", "images/map-preview.png",
     "images/map-preview.webp", "images/memorial-hero.jpg",
+}
+HOLIDAY_FILES = {
+    "images/holiday/garland.webp", "images/holiday/menu-button.webp",
+    "images/holiday/menu-1.jpg", "images/holiday/menu-2.jpg",
 }
 PROTECTED = {"data", "uploads", "admin"}
 
@@ -22,7 +26,7 @@ def next_payload(name):
     return name.startswith("__next.") and name.endswith(".txt")
 
 
-def classify(path):
+def classify(path, festive):
     parts = path.parts
     top = parts[0]
     if any(part.startswith(".") for part in parts):
@@ -39,6 +43,8 @@ def classify(path):
             return "include"
     if parts[:2] == ("_next", "static") and path.suffix in {".js", ".css", ".woff2"}:
         return "include"
+    if path.as_posix() in HOLIDAY_FILES:
+        return "include" if festive else "skip"
     if path.as_posix() in DESIGN_FILES:
         return "include"
     if parts[:2] == ("images", "hero") and path.suffix == ".jpg":
@@ -58,6 +64,11 @@ def main():
     if not (export / "index.html").is_file() or not (export / "_next/static").is_dir():
         parser.error("Run npm run build first.")
 
+    seasonal_page = export / "new-year-menu/index.html"
+    if not seasonal_page.is_file():
+        parser.error("The export is missing /new-year-menu/. Run the current build first.")
+    festive = 'src="/images/holiday/menu-1.jpg"' in seasonal_page.read_text(encoding="utf-8")
+
     included, unknown = [], []
     for file in sorted(export.rglob("*")):
         if file.is_symlink():
@@ -65,7 +76,7 @@ def main():
         if not file.is_file():
             continue
         path = file.relative_to(export)
-        kind = classify(path)
+        kind = classify(path, festive)
         if kind == "include":
             included.append(path)
         elif kind == "unknown":

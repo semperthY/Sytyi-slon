@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useEffect } from "react";
 import { usePathname } from "next/navigation";
 
@@ -12,7 +13,7 @@ import About from "./About";
 import Contacts from "./Contacts";
 import Services from "./Services";
 
-export default function HomeContent() {
+export default function HomeContent({ festive }: { festive: boolean }) {
   const pathname = usePathname();
   const { ready, visible, closing } = useWelcome();
 
@@ -41,6 +42,14 @@ export default function HomeContent() {
   return (
     <>
       <Hero />
+
+      {festive && (
+        <div className="bg-neutral-950 px-4 pt-7 text-center">
+          <Link href="/new-year-menu/" className="inline-block rounded-xl focus-visible:outline-2 focus-visible:outline-amber-400">
+            <Image src="/images/holiday/menu-button.webp" alt="Новогоднее меню" width={850} height={425} className="h-auto w-full max-w-sm" />
+          </Link>
+        </div>
+      )}
 
       <section
         id="menu"

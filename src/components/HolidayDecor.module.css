@@ -1,0 +1,33 @@
+.garland {
+  position: fixed;
+  inset: 0 0 auto;
+  height: clamp(18px, 4vw, 56px);
+  z-index: 51;
+  pointer-events: none;
+  background: url("/images/holiday/garland.webp") center center / auto 175% repeat-x;
+}
+
+.snow {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 20;
+  user-select: none;
+}
+
+.flake {
+  position: absolute;
+  top: -30px;
+  color: white;
+  animation: snowfall linear infinite;
+}
+
+@keyframes snowfall {
+  to { transform: translateY(calc(100dvh + 45px)); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .snow { display: none; }
+  .flake { animation: none; }
+}
