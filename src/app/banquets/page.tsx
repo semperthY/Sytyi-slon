@@ -1,3 +1,4 @@
+import BanquetMenu from "@/components/BanquetMenu";
 import PageHero from "@/components/PageHero";
 import ContactCallout from "@/components/ContactCallout";
 import {
@@ -77,23 +78,7 @@ export default function BanquetsPage() {
           ))}
         </section>
 
-        <section className="mb-20 rounded-2xl border border-neutral-800 bg-neutral-900 p-10">
-          <h2 className="mb-6 text-3xl font-bold text-white">
-            Индивидуальное банкетное меню
-          </h2>
-
-          <p className="mb-6 text-lg leading-8 text-neutral-400">
-            Банкетное меню составляется индивидуально с учётом
-            ваших пожеланий, бюджета и количества гостей. Вы
-            можете выбрать любые блюда из нашего ассортимента, а
-            наши сотрудники помогут подобрать оптимальное меню
-            именно для вашего мероприятия.
-          </p>
-
-          <p className="text-xl font-semibold text-amber-500">
-            Стоимость банкетного меню — от 2500 ₽ с человека.
-          </p>
-        </section>
+        <BanquetMenu />
 
         <ContactCallout
           title="Забронировать банкет"
