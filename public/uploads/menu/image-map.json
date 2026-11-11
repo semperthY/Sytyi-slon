@@ -1,0 +1,20 @@
+{
+    "cold-rolls": {
+        "CLR007": "/uploads/menu/686c72a38c5428b10d4efad36bd2ace5.webp",
+        "CLR001": "/uploads/menu/2da8710fb2f4154813b5749f175e5faf.webp",
+        "CLR003": "/uploads/menu/9211b2cb12bd35e90c1c96b106d7a756.webp",
+        "CLR002": "/uploads/menu/0b1f37aa7298d43f465e6aa1400797ba.webp"
+    },
+    "sets": {
+        "SET001": "/uploads/menu/4acea0c1136daaeaf80d36341b3b0d6f.webp",
+        "SET004": "/uploads/menu/234546ce080c42ca2134fb05c59de94c.webp",
+        "SET003": "/uploads/menu/67aa24e4729d2bcd80c98f7341017d7e.webp"
+    },
+    "soups": {
+        "SUP001": "/uploads/menu/4de45187f8c6d379ebe8f8bf8d9d0c8c.webp"
+    },
+    "meat": {
+        "HOT001": "/uploads/menu/0e8c9a4d37c01ddc3484ddbce944d365.webp",
+        "HOT005": "/uploads/menu/786d0c2be30631ae5c2cab4ed4dd4295.webp"
+    }
+}

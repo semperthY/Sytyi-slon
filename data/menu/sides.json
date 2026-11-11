@@ -110,5 +110,20 @@
         "createdAt": "2026-08-02T18:19:24.100Z",
         "updatedAt": "2026-08-02T18:19:24.100Z",
         "id": "SID007"
+    },
+    {
+        "id": "SID008",
+        "name": "Картофель фри",
+        "description": "",
+        "value": "150 г",
+        "price": 200,
+        "image": "",
+        "visible": true,
+        "available": true,
+        "popular": false,
+        "deleted": false,
+        "sort": 8,
+        "createdAt": "2026-11-09T22:05:29+03:00",
+        "updatedAt": "2026-11-09T22:05:29+03:00"
     }
 ]

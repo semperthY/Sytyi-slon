@@ -132,7 +132,7 @@
         "name": "Сельдь под шубой",
         "description": "",
         "value": "150 г",
-        "price": 150,
+        "price": 200,
         "image": "",
         "visible": true,
         "available": true,
@@ -140,7 +140,7 @@
         "deleted": false,
         "sort": 9,
         "createdAt": "2026-08-02T18:19:24.099Z",
-        "updatedAt": "2026-08-02T18:19:24.099Z",
+        "updatedAt": "2026-11-09T22:07:58+03:00",
         "id": "SAL009"
     },
     {
