@@ -13,7 +13,7 @@ import About from "./About";
 import Contacts from "./Contacts";
 import Services from "./Services";
 
-const buttonSize = "aspect-[850/318] w-full";
+const buttonAspect = "aspect-[850/318]";
 
 export default function HomeContent({ festive }: { festive: boolean }) {
   const pathname = usePathname();
@@ -68,7 +68,7 @@ export default function HomeContent({ festive }: { festive: boolean }) {
           <div className={festive ? "mx-auto mt-8 w-full max-w-72" : "mt-8"}>
             <Link
               href="/menu/"
-              className={`group inline-flex items-center justify-center gap-3 rounded-full bg-yellow-500 text-base font-bold text-black shadow-lg shadow-yellow-500/20 transition hover:-translate-y-1 hover:bg-yellow-400 hover:shadow-xl hover:shadow-yellow-500/30 ${festive ? buttonSize : "px-8 py-4"}`}
+              className={`group inline-flex items-center justify-center gap-3 rounded-full bg-yellow-500 text-base font-bold text-black shadow-lg shadow-yellow-500/20 transition hover:-translate-y-1 hover:bg-yellow-400 hover:shadow-xl hover:shadow-yellow-500/30 ${festive ? `${buttonAspect} w-[65%]` : "px-8 py-4"}`}
             >
               Открыть меню
 
@@ -90,7 +90,7 @@ export default function HomeContent({ festive }: { festive: boolean }) {
 
             {festive && (
               <div className="mt-5">
-                <Link href="/new-year-menu/" className={`block rounded-xl focus-visible:outline-2 focus-visible:outline-amber-400 ${buttonSize}`}>
+                <Link href="/new-year-menu/" className={`block rounded-xl focus-visible:outline-2 focus-visible:outline-amber-400 w-full ${buttonAspect}`}>
                   <Image src="/images/holiday/menu-button.webp" alt="Новогоднее меню" width={850} height={318} className="h-full w-full object-contain" />
                 </Link>
               </div>
