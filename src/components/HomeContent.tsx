@@ -43,14 +43,6 @@ export default function HomeContent({ festive }: { festive: boolean }) {
     <>
       <Hero />
 
-      {festive && (
-        <div className="bg-neutral-950 px-4 pt-7 text-center">
-          <Link href="/new-year-menu/" className="inline-block rounded-xl focus-visible:outline-2 focus-visible:outline-amber-400">
-            <Image src="/images/holiday/menu-button.webp" alt="Новогоднее меню" width={850} height={425} className="h-auto w-full max-w-sm" />
-          </Link>
-        </div>
-      )}
-
       <section
         id="menu"
         className="relative overflow-hidden bg-neutral-950 px-6 py-20 text-white"
@@ -92,6 +84,14 @@ export default function HomeContent({ festive }: { festive: boolean }) {
               />
             </svg>
           </Link>
+
+          {festive && (
+            <div className="mt-5">
+              <Link href="/new-year-menu/" className="inline-block rounded-xl focus-visible:outline-2 focus-visible:outline-amber-400">
+                <Image src="/images/holiday/menu-button.webp" alt="Новогоднее меню" width={850} height={318} className="h-auto w-full max-w-sm" />
+              </Link>
+            </div>
+          )}
         </div>
       </section>
 
