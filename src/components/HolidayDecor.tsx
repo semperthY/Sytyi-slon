@@ -11,7 +11,10 @@ export default function HolidayDecor() {
 
   return (
     <div aria-hidden="true">
-      <div className={styles.garland} />
+      <div className={styles.garland}>
+        <div className="holiday-garland-lights" />
+        <div className="holiday-garland-lights holiday-garland-lights-alternate" />
+      </div>
       <div className={styles.snow}>
         {flakes.map((style, index) => (
           <span key={index} className={styles.flake} style={style}>❄</span>

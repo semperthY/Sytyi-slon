@@ -14,6 +14,12 @@ import Contacts from "./Contacts";
 import Services from "./Services";
 
 const buttonAspect = "aspect-[850/318]";
+const buttonLights = [
+  [78, 59], [140, 106], [72, 139], [48, 197], [205, 274],
+  [269, 236], [381, 288], [486, 264], [558, 231], [666, 282],
+  [770, 211], [823, 150], [729, 43], [540, 89], [443, 55],
+  [384, 103], [301, 74], [289, 52],
+];
 
 export default function HomeContent({ festive }: { festive: boolean }) {
   const pathname = usePathname();
@@ -90,8 +96,21 @@ export default function HomeContent({ festive }: { festive: boolean }) {
 
             {festive && (
               <div className="mt-5">
-                <Link href="/new-year-menu/" className={`block rounded-xl focus-visible:outline-2 focus-visible:outline-amber-400 w-full ${buttonAspect}`}>
+                <Link href="/new-year-menu/" className={`relative block rounded-xl focus-visible:outline-2 focus-visible:outline-amber-400 w-full ${buttonAspect}`}>
                   <Image src="/images/holiday/menu-button.webp" alt="Новогоднее меню" width={850} height={318} className="h-full w-full object-contain" />
+                  <span aria-hidden="true" className="holiday-button-lights">
+                    {buttonLights.map(([x, y], index) => (
+                      <span
+                        key={x}
+                        className="holiday-button-bulb"
+                        style={{
+                          left: `${x / 8.5}%`,
+                          top: `${y / 3.18}%`,
+                          animationDelay: `-${(index * 0.83) % 6.8}s`,
+                        }}
+                      />
+                    ))}
+                  </span>
                 </Link>
               </div>
             )}
