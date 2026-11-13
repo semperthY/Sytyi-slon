@@ -1,0 +1,36 @@
+name: Build Timeweb ZIPs
+
+on:
+  push:
+    branches: [timeweb-safe-update]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  package:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        include:
+          - edition: ordinary
+            archive: standard
+          - edition: holiday
+            archive: holiday
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - run: npm run build
+        env:
+          SITE_EDITION: ${{ matrix.edition }}
+      - run: python3 scripts/package-timeweb.py "packages/sytyi-slon-${{ matrix.archive }}.zip"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: sytyi-slon-${{ matrix.archive }}
+          path: packages/
+          if-no-files-found: error
